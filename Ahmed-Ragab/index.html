@@ -42,12 +42,11 @@
             margin: 0;
             padding: 0;
         }
-        /* أيقونات السوشيال ميديا في الهيدر */
+        /* أيقونات السوشيال ميديا (أقصى اليمين) */
         .social-icons-header {
             display: flex;
             align-items: center;
             gap: 16px;
-            margin-right: 20px;
         }
         .social-icons-header a {
             color: #000;
@@ -57,11 +56,12 @@
         .social-icons-header a:hover {
             color: #e66a2c;
         }
-        /* Login/Register على سطح المكتب */
+        /* Login/Register (على يسار أيقونات السوشيال) */
         .login-register {
             display: flex;
             align-items: center;
             gap: 14px;
+            margin-right: 20px;
         }
         .login-register a {
             font-size: 14px;
@@ -79,10 +79,7 @@
             .logo img {
                 max-height: 85px;
             }
-            .social-icons-header {
-                display: none;  /* إخفاء أيقونات السوشيال في الموبايل من الهيدر */
-            }
-            .login-register {
+            .social-icons-header, .login-register {
                 display: none;
             }
             .navbar-toggler {
@@ -276,15 +273,16 @@
                 </div>
                 <div class="col-md-8 col-4">
                     <div class="d-flex justify-content-end align-items-center">
-                        <!-- أيقونات السوشيال ميديا فوق (تظهر فقط على اللاب توب) -->
+                        <!-- أزرار Login/Register (على يسار أيقونات السوشيال) -->
+                        <div class="login-register d-none d-md-flex">
+                            <a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
+                            <a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-user-plus"></i> Register</a>
+                        </div>
+                        <!-- أيقونات السوشيال ميديا (أقصى اليمين) -->
                         <div class="social-icons-header d-none d-md-flex">
                             <a href="https://www.facebook.com/oshacademyofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
                             <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-twitter"></i></a>
                             <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        <div class="login-register">
-                            <a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
-                            <a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-user-plus"></i> Register</a>
                         </div>
                         <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#topMenu" aria-controls="topMenu">
                             <i class="fas fa-bars"></i>
@@ -356,10 +354,10 @@
                             <div class="col-md-8">
                                 <table class="detail-table">
                                     <tbody>
-                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong> </strong> </td> <tr>
-                                        <tr><th>Title</th><td>OSHA Construction Safety and Health</strong> </td> </tr>
-                                        <tr><th>Hours</th><td>30 Hours</strong> </td> </tr>
-                                        <tr><th>Issue Date</th><td>17-05-2021</strong> </td> </tr>
+                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong> </strong> </td>
+                                        <tr><th>Title</th><td>OSHA Construction Safety and Health</strong> </td>
+                                        <tr><th>Hours</th><td>30 Hours</strong> </td>
+                                        <tr><th>Issue Date</th><td>17-05-2021</strong> </td>
                                     </tbody>
                                 </table>
                             </div>
@@ -397,7 +395,6 @@
                     <li><a href="https://www.oshacademy.com/pages/students/transcript-request-info.html">Official Transcript Request</a></li>
                     <li><a href="https://www.oshacademy.com/pages/about-us/contact-us.php">Contact Us</a></li>
                 </ul>
-                <!-- أيقونات السوشيال ميديا في الفوتر -->
                 <div class="footer-social-icons">
                     <a href="https://www.facebook.com/oshacademyofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -456,10 +453,10 @@
                         <div class="col-md-8">
                             <table class="detail-table">
                                 <tbody>
-                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong> </td> </tr>
-                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong> </td> </tr>
-                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong> </td> <tr>
-                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong> </td> </tr>
+                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong> </td>
+                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong> </tr>
+                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong> </td>
+                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong> </td>
                                 </tbody>
                             </table>
                         </div>
