@@ -20,12 +20,24 @@
         .header-container { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 12px 0; }
         .logo img { max-height: 60px; width: auto; }
         
-        /* لون أيقونات Login/Register أسود */
+        /* Social icons - باللون الأسود */
+        .social-icons a {
+            color: #000000;
+            font-size: 1.2rem;
+            margin-left: 12px;
+            transition: 0.2s;
+        }
+        .social-icons a:hover { color: #e66a2c; }
+        
+        /* أيقونات Login/Register باللون الأسود */
         .login-register a { font-size: 14px; font-weight: 600; color: #2c3e50; text-decoration: none; margin-left: 15px; }
         .login-register a i { margin-right: 6px; color: #000000; }
         
-        .main-nav .nav-link { font-weight: 600; color: #2c3e50; padding: 8px 16px; text-decoration: none; }
+        /* القائمة العلوية - تقليل الأزرار */
+        .main-nav .nav-link { font-weight: 600; color: #2c3e50; padding: 8px 12px; text-decoration: none; font-size: 0.95rem; }
         .main-nav .nav-link.active { color: #e66a2c; border-bottom: 3px solid #e66a2c; }
+        .main-nav .nav-link:hover { color: #e66a2c; }
+        
         .page-header { background: linear-gradient(95deg, #1e3c2c 0%, #2a5a3a 100%); padding: 35px 0; margin-bottom: 40px; }
         .page-header h1 { font-size: 2rem; font-weight: 700; color: white; }
         .breadcrumb-custom { background: transparent; padding: 0; margin-bottom: 12px; }
@@ -48,16 +60,14 @@
         .detail-table th { background: #f8f9fa; font-weight: 700; width: 40%; }
         .gradient-divider { height: 4px; background: linear-gradient(90deg, #2e7d32, #ffb74d); margin: 25px 0; border-radius: 2px; }
         footer { background: #1a2a36; color: #cddce9; margin-top: 70px; padding: 45px 0 20px; }
-        
-        /* روابط الفوتر باللون الأزرق */
         .footer-links a { color: #007bff; text-decoration: none; }
         .footer-links a:hover { text-decoration: underline; }
-        
         .copyright { background: #0f1a22; padding: 15px 0; margin-top: 30px; font-size: 0.85rem; }
         @media (max-width: 768px) {
             .page-header h1 { font-size: 1.6rem; }
             .authentic-title { font-size: 1.5rem; }
             .logo img { max-height: 40px; }
+            .social-icons a { font-size: 1rem; margin-left: 8px; }
         }
         .form-control-lg { font-size: 1rem; padding: 12px; }
         .error-msg { color: #d32f2f; font-size: 0.9rem; margin-top: 10px; text-align: center; }
@@ -67,7 +77,6 @@
 <body>
 
 <div class="body-wrapper">
-    <!-- Header بدون شعار 1999 وأيقونات سوشيال ميديا -->
     <header>
         <div class="header-container">
             <div class="container">
@@ -80,7 +89,13 @@
                         </div>
                     </div>
                     <div class="col-md-8 col-4">
-                        <div class="d-flex justify-content-end align-items-center gap-3">
+                        <div class="d-flex justify-content-end align-items-center gap-2">
+                            <!-- أيقونات وسائل التواصل باللون الأسود -->
+                            <div class="social-icons d-none d-md-block">
+                                <a href="https://www.facebook.com/oshacademyofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
                             <div class="login-register">
                                 <a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
                                 <a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-user-plus"></i> Register</a>
@@ -89,16 +104,14 @@
                                 <i class="fas fa-bars"></i>
                             </button>
                         </div>
+                        <!-- القائمة العلوية المبسطة (أهم الأزرار فقط) -->
                         <div class="main-nav collapse d-md-block" id="mobileNav">
                             <ul class="nav justify-content-end mt-2">
                                 <li class="nav-item"><a class="nav-link" href="https://www.oshacademy.com/index.html">Home</a></li>
                                 <li class="nav-item"><a class="nav-link" href="https://www.oshacademy.com/programs/">Training</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Business Solutions</a></li>
-                                <li class="nav-item"><a class="nav-link active" href="#">Validate Certificate</a></li>
                                 <li class="nav-item"><a class="nav-link" href="https://www.oshacademy.com/student/">Students</a></li>
+                                <li class="nav-item"><a class="nav-link active" href="#">Validate Certificate</a></li>
                                 <li class="nav-item"><a class="nav-link" href="https://www.oshacademy.com/pages/resources/">Resources</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Store</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -151,8 +164,23 @@
                                 <div class="col-md-8">
                                     <table class="detail-table w-100">
                                         <tbody>
-                                            <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong></td>
-                                            <tr><th>Title</th><td>Osha construction safety and health</strong><\/td> </tr> <tr> <th>Hours</th> <td>30 hours<\/td> </tr> <tr> <th>Issue Date</th> <td>17-05-2021<\/td> </tr> </tbody> <\/table> <\/div> <\/div> <div class="gradient-divider"><\/div> <p class="text-muted">This certificate has been verified as authentic and valid, attesting to the individual's successful completion of the OSHAcademy safety training. It provides assurance that the recipient possesses the safety and health knowledge encompassed in the area of study.<\/p> <div class="text-end mt-3"><i class="fas fa-stamp text-success"><\/i> <span class="small">IACET Accredited Provider<\/span><\/div> <\/div> <\/div> <\/div> <\/div> <\/div> <\/div>
+                                            <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong></strong></td>
+                                            <tr><th>Title</th><td>Osha construction safety and health</strong></td>
+                                            <tr><th>Hours</th><td>30 hours</strong></td>
+                                            <tr><th>Issue Date</th><td>17-05-2021</strong></td>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="gradient-divider"></div>
+                            <p class="text-muted">This certificate has been verified as authentic and valid, attesting to the individual's successful completion of the OSHAcademy safety training. It provides assurance that the recipient possesses the safety and health knowledge encompassed in the area of study.</p>
+                            <div class="text-end mt-3"><i class="fas fa-stamp text-success"></i> <span class="small">IACET Accredited Provider</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
@@ -165,7 +193,7 @@
                 <div class="col-md-4">
                     <h5>IACET Accreditation</h5>
                     <a href="https://www.oshacademy.com/_assets/iacet/iacet_geigle_safety_group_dba_oshacademy_certificate-95647.pdf" target="_blank">
-                        <img src="https://placehold.co/200x80/2e7d32/white?text=IACET" class="img-fluid mb-3" alt="IACET Certificate">
+                        <img src="IACET_Logo.jpg" alt="IACET Authorized Provider" class="img-fluid mb-3" style="max-width:180px;" onerror="this.onerror=null; this.src='https://placehold.co/180x80/2e7d32/white?text=IACET';">
                     </a>
                     <h5 class="mt-3">Contact Us</h5>
                     <p><i class="fas fa-phone-alt me-2"></i> +1 (971) 217-8721 <br> <i class="fas fa-envelope me-2"></i> <a href="https://www.oshacademy.com/pages/about-us/contact-us.php" class="text-white-50">Send us an email</a></p>
@@ -207,19 +235,19 @@
                         <div class="col-md-8">
                             <table class="detail-table w-100">
                                 <tbody>
-                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong><\/td><\/tr>
-                                    <tr><th>Title<\/th><td>${escapeHtml(certData.title)}<\/td><\/tr>
-                                    <tr><th>Hours<\/th><td>${escapeHtml(certData.hours)}<\/td><\/tr>
-                                    <tr><th>Issue Date<\/th><td>${escapeHtml(certData.issueDate)}<\/td><\/tr>
+                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong></td>
+                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong></td>
+                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong></td>
+                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong></td>
                                 </tbody>
-                            <\/table>
-                        <\/div>
-                    <\/div>
-                    <div class="gradient-divider"><\/div>
-                    <p class="text-muted">This certificate has been verified as authentic and valid, attesting to the individual's successful completion of the OSHAcademy safety training. It provides assurance that the recipient possesses the safety and health knowledge encompassed in the area of study.<\/p>
-                    <div class="text-end mt-3"><i class="fas fa-stamp text-success"><\/i> <span class="small">IACET Accredited Provider<\/span><\/div>
-                <\/div>
-            <\/div>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="gradient-divider"></div>
+                    <p class="text-muted">This certificate has been verified as authentic and valid, attesting to the individual's successful completion of the OSHAcademy safety training. It provides assurance that the recipient possesses the safety and health knowledge encompassed in the area of study.</p>
+                    <div class="text-end mt-3"><i class="fas fa-stamp text-success"></i> <span class="small">IACET Accredited Provider</span></div>
+                </div>
+            </div>
         `;
     }
     
@@ -248,7 +276,7 @@
         result.success ? renderCertificateResult(result.certId, result.data) : renderErrorResult(result.message);
     });
     if(document.getElementById("certificateId").value === "") document.getElementById("certificateId").value = "OSHA-AHMED-30H-210517";
-<\/script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"><\/script>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
