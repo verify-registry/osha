@@ -3,34 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>OSHA Academy Certificate Validation</title>
+    <title>Validate Student Certificate - OSHAcademy Clone</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome 6.4.0 to support the new X (Twitter) icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
         body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f4f4f4;
-            color: #2c3e50;
-            line-height: 1.5;
+            font-family: 'Open Sans', Arial, sans-serif;
+            background-color: #fff;
+            color: #777;
+            line-height: 24px;
+            font-size: 14px;
         }
+        
         /* ========== HEADER ========== */
         .header-container {
             background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,.05);
-            padding: 10px 0; /* تقليل الهامش الأبيض */
-            margin: 0;
+            border-top: 5px solid #ededed;
+            padding: 15px 0;
+            box-shadow: 0 1px 0 0 rgba(0,0,0,.05);
         }
         .logo img {
-            max-height: 100px; /* تقليل ارتفاع اللوجو عشان المساحة البيضاء تقل */
+            max-height: 60px;
             width: auto;
-            display: block;
         }
         .top-right-group {
             display: flex;
@@ -38,220 +36,162 @@
             justify-content: flex-end;
             gap: 20px;
         }
-        .auth-buttons {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-        .auth-buttons a {
-            font-size: 14px;
-            font-weight: 600;
-            color: #2c3e50;
+        .social-icons-top a {
+            color: #ccc;
+            font-size: 1.1rem;
+            transition: color 0.2s;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-        }
-        .auth-buttons a i {
-            font-size: 14px;
-            color: #000;
-        }
-        .social-icons-top {
-            display: flex;
-            gap: 18px;
-            align-items: center;
-        }
-        .social-icons-top a {
-            color: #2c3e50;
-            font-size: 1.3rem; /* تكبير الأيقونات قليلاً لتكون أوضح */
-            transition: color 0.2s ease;
-            text-decoration: none;
         }
         .social-icons-top a:hover {
-            color: #e66a2c;
+            color: #0088cc;
         }
-        .mobile-menu-btn {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            padding: 0;
-            display: none;
-        }
-        .offcanvas-top {
-            height: auto;
-            max-height: 250px;
-            border-radius: 0 0 12px 12px;
-        }
-        .mobile-nav-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .mobile-nav-links li {
-            padding: 12px 20px;
-            border-bottom: 1px solid #eee;
-        }
-        .mobile-nav-links li a {
-            text-decoration: none;
-            color: #2c3e50;
+        .auth-buttons a {
+            font-size: 13px;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            color: #0088cc;
+            text-decoration: none;
         }
-        @media (max-width: 768px) {
-            .logo img {
-                max-height: 80px;
-            }
-            .top-right-group .auth-buttons,
-            .top-right-group .social-icons-top {
-                display: none !important;
-            }
-            .mobile-menu-btn {
-                display: block;
-            }
+        .auth-buttons a:hover {
+            color: #005580;
         }
-        @media (min-width: 769px) {
-            .mobile-only {
-                display: none !important;
-            }
-        }
+
         /* ========== PAGE HEADER ========== */
         .page-header {
-            background: linear-gradient(95deg, #1e3c2c 0%, #2a5a3a 100%);
-            padding: 30px 0;
-            margin-bottom: 45px;
+            background-color: #171717; /* لون مطابق للموقع الأصلي */
+            border-top: 5px solid #2e353e;
+            border-bottom: 5px solid #2e353e;
+            padding: 20px 0;
+            margin-bottom: 40px;
         }
         .page-header h1 {
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 1.8em;
+            font-weight: 300;
             color: #fff;
+            margin: 0;
+            border-bottom: none;
         }
         .breadcrumb-custom {
-            margin-bottom: 12px;
+            margin-bottom: 5px;
+            font-size: 0.9em;
         }
         .breadcrumb-custom a {
-            color: #ffd966;
+            color: #0088cc;
             text-decoration: none;
         }
+        .breadcrumb-custom span {
+            color: #999;
+        }
+
+        /* ========== AUTHENTIC BLOCK ========== */
         .authentic-block {
-            background: #eaf6e6;
-            border-left: 8px solid #2e7d32;
-            padding: 18px;
-            border-radius: 14px;
+            margin-bottom: 30px;
         }
         .authentic-title {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #2e7d32;
-            margin-bottom: 5px;
-        }
-        .authentic-definition {
-            font-size: 1rem;
-        }
-        .authentic-definition::before {
-            content: ": ";
-            font-weight: bold;
-        }
-        .btn-validate {
-            background-color: #007bff;
-            border: none;
-            padding: 12px 35px;
+            font-size: 24px;
             font-weight: 700;
-            font-size: 1rem;
-            transition: 0.2s;
+            color: #212529;
+            margin-bottom: 0;
         }
-        .btn-validate:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
+        .authentic-text {
+            font-size: 16px;
+            color: #777;
         }
-        .cert-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+        /* ========== FORM STYLES ========== */
+        .form-label {
+            font-weight: 600;
+            color: #333;
         }
-        .cert-header {
-            background-color: #2e7d32;
-            padding: 18px 24px;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
+        .form-control-lg {
+            font-size: 14px;
+            padding: 10px 15px;
+            border-radius: 4px;
         }
-        .verified-badge {
-            background: #f8f9fa;
-            border-radius: 16px;
-            text-align: center;
-            padding: 20px 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 200px;
+        .btn-success {
+            background-color: #47a447;
+            border-color: #398439;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 4px;
         }
-        .verified-badge img {
-            max-width: 280px; /* تكبير صورة VERIFIED عشان تبقى واضحة جداً */
-            width: 100%;
-            height: auto;
+        .btn-success:hover {
+            background-color: #398439;
+            border-color: #2d672d;
         }
-        .verified-text {
-            display: none;
+        .captcha-box {
+            margin-bottom: 15px;
         }
-        .detail-table {
-            width: 100%;
-            border-collapse: collapse;
+        .captcha-image {
+            border: 1px solid #ccc;
+            margin-right: 10px;
         }
-        .detail-table th, .detail-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #e9ecef;
+
+        /* ========== RESULT PANEL ========== */
+        .panel-success {
+            border: 1px solid #d6e9c6;
+            border-radius: 4px;
+            box-shadow: 0 1px 1px rgba(0,0,0,.05);
         }
-        .detail-table th {
-            background-color: #f8f9fa;
-            font-weight: 700;
-            width: 40%;
+        .panel-heading {
+            background-color: #dff0d8;
+            color: #3c763d;
+            padding: 10px 15px;
+            font-weight: 600;
+            font-size: 15px;
+            border-bottom: 1px solid #d6e9c6;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
         }
-        .gradient-divider {
-            height: 4px;
-            background: linear-gradient(90deg, #2e7d32, #ffb74d);
-            margin: 25px 0;
-            border-radius: 2px;
+        .panel-body {
+            padding: 20px;
+            background-color: #fff;
         }
+        .table > thead > tr > th {
+            border-bottom: 2px solid #ddd;
+            font-weight: 600;
+            color: #333;
+        }
+        .table-striped > tbody > tr:nth-of-type(odd) {
+            background-color: #f9f9f9;
+        }
+        .authentic-certificate {
+            font-weight: 600;
+            color: #333;
+            width: 35%;
+        }
+        
+        /* ========== FOOTER ========== */
         footer {
             background-color: #1a2a36;
             color: #cddce9;
-            margin-top: 70px;
+            margin-top: 60px;
             padding: 45px 0 20px;
+            font-size: 13px;
         }
-        .footer-links a {
-            color: #4ea3ff;
-            text-decoration: none;
-        }
-        .footer-social-icons {
-            display: flex;
-            justify-content: flex-start;
-            gap: 25px;
-            margin-top: 20px;
+        footer h4 {
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 15px;
         }
         .footer-social-icons a {
             color: #cddce9;
             font-size: 1.5rem;
-            transition: color 0.2s;
+            margin-right: 15px;
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
         }
         .footer-social-icons a:hover {
-            color: white;
+            color: #fff;
         }
         .copyright {
             background-color: #0f1a22;
             padding: 15px 0;
             margin-top: 30px;
-            font-size: 0.85rem;
-            text-align: center;
-        }
-        .error-msg {
-            color: #d32f2f;
-            font-size: 0.9rem;
-            margin-top: 12px;
-            text-align: center;
+            text-align: left;
         }
     </style>
 </head>
@@ -263,43 +203,28 @@
             <div class="row align-items-center">
                 <div class="col-md-4 col-8">
                     <div class="logo">
-                        <a href="https://www.oshacademy.com/index.html">
-                            <img src="../assets/osh.png" alt="OSHAcademy Logo"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/500x180/2e7d32/white?text=OSHAcademy';">
+                        <a href="#">
+                            <img src="../assets/osh.png" alt="OSHAcademy" onerror="this.onerror=null; this.src='https://placehold.co/327x60/ffffff/000000?text=OSHAcademy';">
                         </a>
                     </div>
                 </div>
                 <div class="col-md-8 col-4">
                     <div class="top-right-group">
-                        <div class="auth-buttons d-none d-md-flex">
-                            <a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-arrow-right"></i> Login</a>
-                            <a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-plus"></i> Register</a>
+                        <div class="auth-buttons d-none d-md-flex gap-3">
+                            <a href="#"><i class="fas fa-sign-in-alt me-1"></i> Login</a>
+                            <a href="#"><i class="fas fa-user-plus me-1"></i> Register</a>
                         </div>
                         <div class="social-icons-top d-none d-md-flex">
-                            <a href="https://www.facebook.com/oshacademyofficial" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://x.com/OSHAcademy" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-                            <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://www.pinterest.com/oshacademy/" target="_blank" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" title="X (Twitter)">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width:1em;height:1em;fill:currentColor"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>
+                            </a>
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                         </div>
-                        <button class="mobile-menu-btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
-                            <i class="fas fa-bars"></i>
-                        </button>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="offcanvas offcanvas-top mobile-only" tabindex="-1" id="mobileMenu">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Menu</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul class="mobile-nav-links">
-                <li><a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-arrow-right"></i> Login</a></li>
-                <li><a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-plus"></i> Register</a></li>
-            </ul>
         </div>
     </div>
 </header>
@@ -307,58 +232,98 @@
 <section class="page-header">
     <div class="container">
         <div class="breadcrumb-custom">
-            <a href="https://www.oshacademy.com/index.html">Home</a> / <span class="text-white">Validate Student Certificate</span>
+            <a href="#">Home</a> / <span>Validate Training</span>
         </div>
-        <h1><i class="fas fa-certificate me-2"></i> Validate Student Certificate</h1>
+        <h1>Validate Student Certificate</h1>
     </div>
 </section>
 
 <div class="container">
     <div class="row g-5">
-        <div class="col-lg-5">
-            <div class="authentic-block mb-4">
-                <div class="authentic-title">Authentic</div>
-                <p class="authentic-definition mb-0">genuine, real, and verifiable — not a copy, not a forgery.</p>
+        <div class="col-md-5">
+            <div class="authentic-block">
+                <p class="authentic-title">Authentic</p>
+                <p class="authentic-text">: genuine; real; not false or copied</p>
             </div>
-            <p>Verifying the authenticity of a safety training certificate confirms the individual's completion of required training, upholds safety standards, guards against fraud, and helps ensure the necessary knowledge to perform tasks safely and responsibly.</p>
-            <form id="validateForm" class="mt-4">
+
+            <p class="mb-4">Verifying the authenticity of a safety training certificate confirms the individual's completion of required training, upholds safety standards, and guards against fraud, and helps ensure the necessary knowledge to perform tasks safely and responsibly.</p>
+
+            <form id="validateForm">
                 <div class="mb-4">
-                    <label class="form-label fw-bold">Certificate ID</label>
-                    <input type="text" id="certificateId" class="form-control form-control-lg" placeholder="e.g., OSHA-AHMED-30H-210517" value="OSHA-AHMED-30H-210517">
-                    <div class="form-text">The certificate ID can be found in the lower-left corner of the certificate.</div>
+                    <label class="form-label">Certificate ID</label>
+                    <input type="text" id="certificateId" class="form-control form-control-lg" placeholder="Certificate ID" value="1050589-C345-231215-964826">
+                    <div class="form-text mt-1 text-muted">The certificate ID can be found in the lower-left corner of the certificate.</div>
                 </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-validate btn-lg text-white px-5"><i class="fas fa-check-circle me-2"></i> Validate Certificate</button>
+
+                <div class="mb-4">
+                    <label class="form-label">Captcha Text</label><br>
+                    <div class="d-flex align-items-center captcha-box">
+                        <img src="https://placehold.co/120x40/f4f4f4/333?text=A8B2C" alt="CAPTCHA" class="captcha-image">
+                        <i class="fas fa-redo text-muted" style="cursor:pointer;" title="Refresh"></i>
+                    </div>
+                    <input type="text" class="form-control form-control-lg" placeholder="CAPTCHA Text" style="max-width: 200px;">
                 </div>
-                <div id="formError" class="error-msg"></div>
+
+                <div class="text-center text-md-start mb-4">
+                    <button type="submit" class="btn btn-success">Validate Certificate</button>
+                </div>
             </form>
         </div>
-        <div class="col-lg-7">
+        
+        <div class="col-md-7">
             <div id="resultPanel">
-                <div class="cert-card">
-                    <div class="cert-header"><i class="fas fa-shield-alt me-2"></i> Authentic Certificate: OSHA-AHMED-30H-210517</div>
-                    <div class="p-4">
+                <div class="panel-success">
+                    <div class="panel-heading">
+                        Authentic Certificate: <span id="displayCertId">1050589-C345-231215-964826</span>
+                    </div>
+                    <div class="panel-body">
                         <div class="row">
                             <div class="col-md-4 text-center mb-4">
-                                <div class="verified-badge">
-                                    <img src="../assets/verified.png" alt="Verified Badge" onerror="this.onerror=null; this.src='https://placehold.co/300x300/2e7d32/white?text=VERIFIED';">
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <table class="detail-table">
+                                <table class="table table-bordered mb-3">
+                                    <thead>
+                                        <tr><th class="text-start">Course</th></tr>
+                                    </thead>
                                     <tbody>
-                                        <!-- تم إصلاح أخطاء الـ HTML هنا -->
-                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong></td></tr>
-                                        <tr><th>Title</th><td>OSHA Construction Safety and Health</td></tr>
-                                        <tr><th>Hours</th><td>30 Hours</td></tr>
-                                        <tr><th>Issue Date</th><td>17-05-2021</td></tr>
+                                        <tr>
+                                            <td class="text-start" style="font-size: 13px;">
+                                                <em>A course is a single unit of study focused around significantly-related topics.</em>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <img src="../assets/verified.png" width="150" alt="Verified" onerror="this.onerror=null; this.src='https://placehold.co/150x150/ffffff/2e7d32?text=VERIFIED';">
+                            </div>
+                            
+                            <div class="col-md-8">
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr><th class="text-center" colspan="2">Certificate Details</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="authentic-certificate">Student Name</td>
+                                            <td id="resStudent">Ismail Elsayed Ismail Abdo</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="authentic-certificate">Title</td>
+                                            <td id="resTitle">Introduction to OSHAcademy</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="authentic-certificate">Hours</td>
+                                            <td id="resHours">0.4</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="authentic-certificate">Issue Date</td>
+                                            <td id="resDate">12/15/23</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <div class="gradient-divider"></div>
-                        <p class="text-muted">This certificate has been verified as authentic and valid, attesting to the individual's successful completion of the OSHAcademy safety training. It provides assurance that the recipient possesses the safety and health knowledge encompassed in the area of study.</p>
-                        <div class="text-end mt-3"><i class="fas fa-stamp text-success"></i> <span class="small">IACET Accredited Provider</span></div>
+                        <hr style="border-top: 2px solid #eee; margin: 25px 0;">
+                        <p class="mb-0" style="color: #777;">
+                            This certificate has been verified as authentic and valid, attesting to the individual's successful completion of the OSHAcademy safety training. It provides assurance that the recipient possesses the safety and health knowledge encompassed in the area of study.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -370,52 +335,50 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5">
-                <h5>Disclaimer</h5>
-                <p>The content provided by OSHAcademy is for educational purposes only. It is not legal advice.</p>
-                <p>OSHAcademy is a division of Geigle Safety Group, Inc., and operates independently from the U.S. Department of Labor and OSHA.</p>
+                <h4>Disclaimer</h4>
+                <p>The content provided by OSHAcademy Occupational Safety and Health Training is for educational purposes only. It is not legal advice and should not be considered a comprehensive interpretation of the Occupational Safety and Health (OSH) Act of 1970 or any other regulatory standards.</p>
+                <p>While every effort is made to ensure accuracy and relevance, <strong>no guarantee is given regarding the completeness or currency of the material.</strong> Users are encouraged to consult original legal sources or seek professional legal guidance for compliance matters.</p>
             </div>
             <div class="col-md-4">
-                <h5>IACET Accreditation</h5>
-                <img src="../assets/IACET_Logo.jpg" alt="IACET Logo" class="img-fluid mb-3" style="max-width:160px;" onerror="this.onerror=null; this.src='https://placehold.co/160x80/2e7d32/white?text=IACET';">
-                <h5 class="mt-3">Contact Us</h5>
-                <p><i class="fas fa-phone-alt me-2"></i> +1 (971) 217-8721<br>
-                <i class="fas fa-envelope me-2"></i> <a href="https://www.oshacademy.com/pages/about-us/contact-us.php" class="text-white-50">Send us an email</a></p>
+                <h4>IACET Accreditation</h4>
+                <img src="../assets/IACET_Logo.jpg" alt="IACET Logo" class="img-fluid mb-4" style="max-width:200px;" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/000000?text=IACET';">
+                <h4>Contact Us</h4>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-map-marker-alt me-2"></i> <strong>Address:</strong> 15220 NW Greenbrier Pkwy, Ste 360, Beaverton, OR 97006, United States</li>
+                    <li><i class="fas fa-phone me-2"></i> <strong>Phone:</strong> +1 (971) 217-8721</li>
+                </ul>
             </div>
             <div class="col-md-3">
-                <h5>Quick Links</h5>
-                <ul class="list-unstyled footer-links">
-                    <li><a href="https://www.oshacademy.com/pages/students/privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="https://www.oshacademy.com/pages/students/terms-of-service.html">Terms of Service</a></li>
-                    <li><a href="https://www.oshacademy.com/pages/students/transcript-request-info.html">Official Transcript Request</a></li>
-                    <li><a href="https://www.oshacademy.com/pages/about-us/contact-us.php">Contact Us</a></li>
-                </ul>
+                <h4>Follow Us</h4>
                 <div class="footer-social-icons">
-                    <a href="https://www.facebook.com/oshacademyofficial" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://x.com/OSHAcademy" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-                    <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.pinterest.com/oshacademy/" target="_blank" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="X (Twitter)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width:1em;height:1em;fill:currentColor"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>
+                    </a>
+                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="copyright"><div class="container">© 2000-2026 Geigle Safety Group, Inc. All rights reserved.</div></div>
+    <div class="copyright">
+        <div class="container">
+            Copyright ©2000-2026 Geigle Safety Group, Inc. All rights reserved. Federal copyright prohibits unauthorized reproduction by any means without permission. Students may reproduce materials for personal study.
+        </div>
+    </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+    // الداتا الوهمية للبحث
     const certificatesDB = {
-        "OSHA-AHMED-30H-210517": {
-            student: "Ahmed Ragab Salah Mohamed",
-            title: "OSHA Construction Safety and Health",
-            hours: "30 Hours",
-            issueDate: "17-05-2021"
+        "1050589-C345-231215-964826": {
+            student: "Ismail Elsayed Ismail Abdo",
+            title: "Introduction to OSHAcademy",
+            hours: "0.4",
+            issueDate: "12/15/23"
         },
-        "1050589-C345-210517-962021": {
-            student: "Ahmed Ragab Salah Mohamed",
-            title: "OSHA Construction Safety and Health",
-            hours: "30 Hours",
-            issueDate: "17-05-2021"
-        },
-        "OSHA-CONST-30H-AHMED": {
+        "OSHA-AHMED-30H": {
             student: "Ahmed Ragab Salah Mohamed",
             title: "OSHA Construction Safety and Health",
             hours: "30 Hours",
@@ -423,69 +386,22 @@
         }
     };
 
-    function escapeHtml(str) {
-        if (!str) return '';
-        return str.replace(/[&<>]/g, function(m) {
-            if (m === '&') return '&amp;';
-            if (m === '<') return '&lt;';
-            if (m === '>') return '&gt;';
-            return m;
-        });
-    }
-
-    function renderCertificateResult(certId, certData) {
-        // تم إصلاح أخطاء الـ HTML هنا أيضاً
-        const html = `
-            <div class="cert-card">
-                <div class="cert-header"><i class="fas fa-check-circle me-2"></i> Authentic Certificate: ${escapeHtml(certId)}</div>
-                <div class="p-4">
-                    <div class="row">
-                        <div class="col-md-4 text-center mb-4">
-                            <div class="verified-badge">
-                                <img src="../assets/verified.png" alt="VERIFIED" onerror="this.onerror=null; this.src='https://placehold.co/300x300/2e7d32/white?text=VERIFIED';">
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <table class="detail-table">
-                                <tbody>
-                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong></td></tr>
-                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</td></tr>
-                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</td></tr>
-                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="gradient-divider"></div>
-                    <p class="text-muted">This certificate has been verified as authentic and valid, attesting to the individual's successful completion of the OSHAcademy safety training. It provides assurance that the recipient possesses the safety and health knowledge encompassed in the area of study.</p>
-                    <div class="text-end mt-3"><i class="fas fa-stamp text-success"></i> <span class="small">IACET Accredited Provider</span></div>
-                </div>
-            </div>
-        `;
-        document.getElementById("resultPanel").innerHTML = html;
-    }
-
-    function renderErrorResult(message) {
-        const html = `
-            <div class="cert-card border-danger" style="border:1px solid #dc3545;">
-                <div class="cert-header" style="background:#b71c1c !important;"><i class="fas fa-exclamation-triangle me-2"></i> Certificate Validation Failed</div>
-                <div class="p-4">
-                    <div class="alert alert-danger"><i class="fas fa-times-circle me-2"></i> ${escapeHtml(message)}</div>
-                    <p>Please verify the Certificate ID and try again. If you believe this is an error, contact support.</p>
-                    <hr><small>Valid examples: <strong>OSHA-AHMED-30H-210517</strong> or <strong>1050589-C345-210517-962021</strong></small>
-                </div>
-            </div>
-        `;
-        document.getElementById("resultPanel").innerHTML = html;
-    }
-
     document.getElementById("validateForm").addEventListener("submit", function(e) {
         e.preventDefault();
         const certId = document.getElementById("certificateId").value.trim();
         const certData = certificatesDB[certId];
-        certData ? renderCertificateResult(certId, certData) : renderErrorResult("Certificate ID not found in our records. Please check the ID and try again.");
+        
+        if (certData) {
+            document.getElementById("displayCertId").innerText = certId;
+            document.getElementById("resStudent").innerText = certData.student;
+            document.getElementById("resTitle").innerText = certData.title;
+            document.getElementById("resHours").innerText = certData.hours;
+            document.getElementById("resDate").innerText = certData.issueDate;
+            document.getElementById("resultPanel").style.display = "block";
+        } else {
+            alert("Certificate ID not found. Please try again.");
+        }
     });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
