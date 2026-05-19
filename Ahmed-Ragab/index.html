@@ -15,22 +15,23 @@
         body {
             background: #f4f4f4;
             color: #2c3e50;
-            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
         }
-
         /* ================= HEADER ================= */
         .header-container {
             background: #fff;
             box-shadow: 0 2px 8px rgba(0,0,0,.05);
-            padding: 8px 0;
+            padding: 0;   /* إزالة الهوامش تماماً */
         }
         .logo img {
-            max-height: 140px;
+            max-height: 160px;   /* تكبير اللوجو */
             width: auto;
             height: auto;
             display: block;
             object-fit: contain;
         }
+        /* Login/Register على سطح المكتب (تظهر بشكل طبيعي) */
         .login-register {
             display: flex;
             align-items: center;
@@ -47,35 +48,49 @@
             margin-right: 5px;
             color: #000;
         }
-        /* قائمة مبسطة: Home و Validate Certificate فقط */
-        .main-nav .nav-link {
+        /* قائمة جانبية للموبايل تحتوي على Login/Register */
+        .mobile-nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .mobile-nav-links li {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .mobile-nav-links li a {
+            color: #2c3e50;
+            text-decoration: none;
             font-weight: 600;
-            color: #0a58ca;
-            padding: 8px 12px;
-            font-size: .94rem;
+            display: block;
         }
-        .main-nav .nav-link.active {
-            color: #e66a2c;
-            border-bottom: 3px solid #e66a2c;
-        }
-        .main-nav .nav-link:hover {
-            color: #e66a2c;
+        .mobile-nav-links li a i {
+            margin-right: 8px;
+            color: #000;
         }
 
         /* ================= MOBILE ================= */
         @media (max-width: 768px) {
             .logo img {
-                max-height: 95px;
+                max-height: 110px;   /* تكبير على الموبايل */
             }
+            /* إخفاء Login/Register من الشريط العلوي في الموبايل */
             .login-register {
-                gap: 10px;
+                display: none;
             }
-            .login-register a {
-                font-size: 12px;
+            /* تخصيص زر الهامبرغر */
+            .navbar-toggler {
+                border: none;
+                background: transparent;
+                font-size: 1.5rem;
+                padding: 0;
             }
-            .main-nav .nav-link {
-                font-size: .85rem;
-                padding: 6px 8px;
+            .navbar-toggler:focus {
+                box-shadow: none;
+            }
+            /* تحسين عرض القائمة المنسدلة */
+            .offcanvas-body {
+                padding: 0;
             }
         }
 
@@ -208,33 +223,42 @@
     <div class="header-container">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-4 col-7">
+                <div class="col-md-4 col-8">
                     <div class="logo">
                         <a href="https://www.oshacademy.com/index.html">
                             <img src="../assets/osh.png" alt="OSHAcademy Logo"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/400x140/2e7d32/white?text=OSHAcademy';">
+                                 onerror="this.onerror=null; this.src='https://placehold.co/500x160/2e7d32/white?text=OSHAcademy';">
                         </a>
                     </div>
                 </div>
-                <div class="col-md-8 col-5">
-                    <div class="d-flex justify-content-end align-items-center flex-wrap">
+                <div class="col-md-8 col-4">
+                    <div class="d-flex justify-content-end align-items-center">
+                        <!-- Login/Register على سطح المكتب -->
                         <div class="login-register">
                             <a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
                             <a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-user-plus"></i> Register</a>
                         </div>
-                        <button class="btn btn-sm btn-outline-secondary d-md-none ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav">
+                        <!-- زر الهامبرغر للموبايل -->
+                        <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
                             <i class="fas fa-bars"></i>
                         </button>
                     </div>
-                    <!-- القائمة المبسطة: Home و Validate Certificate فقط -->
-                    <div class="main-nav collapse d-md-block" id="mobileNav">
-                        <ul class="nav justify-content-end mt-2">
-                            <li class="nav-item"><a class="nav-link" href="https://www.oshacademy.com/index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link active" href="#">Validate Certificate</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- القائمة الجانبية (Offcanvas) للموبايل - تحتوي على Login و Register فقط -->
+    <div class="offcanvas offcanvas-end d-md-none" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileMenuLabel">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="mobile-nav-links">
+                <li><a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                <li><a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-user-plus"></i> Register</a></li>
+            </ul>
         </div>
     </div>
 </header>
@@ -285,10 +309,10 @@
                             <div class="col-md-8">
                                 <table class="detail-table">
                                     <tbody>
-                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
-                                        <tr><th>Title</th><td>OSHA Construction Safety and Health</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
-                                        <tr><th>Hours</th><td>30 Hours</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
-                                        <tr><th>Issue Date</th><td>17-05-2021</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
+                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong> </strong> </strong> </td> </tr>
+                                        <tr><th>Title</th><td>OSHA Construction Safety and Health</strong> </td> </tr>
+                                        <tr><th>Hours</th><td>30 Hours</strong> </td> </tr>
+                                        <tr><th>Issue Date</th><td>17-05-2021</strong> </td> </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -379,10 +403,10 @@
                         <div class="col-md-8">
                             <table class="detail-table">
                                 <tbody>
-                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong> </strong> </strong> </strong> </strong> </td> </tr>
-                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong> </strong> </strong> </strong> </strong> </td> </tr>
-                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong> </strong> </strong> </strong> </strong> </td> </tr>
-                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong> </strong> </strong> </strong> </strong> </td> </tr>
+                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong> </td> </tr>
+                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong> </td> </tr>
+                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong> </td> </tr>
+                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong> </td> </tr>
                                 </tbody>
                             </table>
                         </div>
