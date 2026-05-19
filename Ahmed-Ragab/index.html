@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Validate Student Certificate | OSHAcademy</title>
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
@@ -19,15 +15,14 @@
         body { background-color: #f4f4f4; color: #2c3e50; }
         .header-container { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 12px 0; }
         
-        /* جعل شعار OSHAcademy أكبر وأوضح */
+        /* شعار كبير وواضح على جميع الأجهزة */
         .logo img {
-            max-height: 90px;    /* زيادة الارتفاع الأقصى */
+            max-height: 85px;
             width: auto;
             height: auto;
-            display: block;
         }
         
-        /* Social icons - باللون الأسود */
+        /* أيقونات السوشيال ميديا - سوداء */
         .social-icons a {
             color: #000000;
             font-size: 1.2rem;
@@ -36,29 +31,58 @@
         }
         .social-icons a:hover { color: #e66a2c; }
         
-        /* أيقونات Login/Register باللون الأسود */
-        .login-register a { font-size: 14px; font-weight: 600; color: #2c3e50; text-decoration: none; margin-left: 15px; }
-        .login-register a i { margin-right: 6px; color: #000000; }
+        /* أزرار Login/Register - تظهر دائماً في صف الرأس */
+        .login-register {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .login-register a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e50;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .login-register a i {
+            margin-right: 6px;
+            color: #000000;
+        }
         
-        /* القائمة العلوية المبسطة */
-        .main-nav .nav-link { font-weight: 600; color: #2c3e50; padding: 8px 12px; text-decoration: none; font-size: 0.95rem; }
+        /* القائمة العلوية الرئيسية */
+        .main-nav .nav-link {
+            font-weight: 600;
+            color: #2c3e50;
+            padding: 8px 12px;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
         .main-nav .nav-link.active { color: #e66a2c; border-bottom: 3px solid #e66a2c; }
         .main-nav .nav-link:hover { color: #e66a2c; }
         
+        /* تحسين التخطيط للشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .logo img { max-height: 55px; }  /* حجم مناسب للموبايل لكن واضح */
+            .login-register a { font-size: 12px; }
+            .login-register a i { font-size: 12px; }
+            .social-icons a { font-size: 1rem; margin-left: 6px; }
+            .main-nav .nav-link { padding: 6px 8px; font-size: 0.85rem; }
+        }
+        
+        /* باقي الأنماط */
         .page-header { background: linear-gradient(95deg, #1e3c2c 0%, #2a5a3a 100%); padding: 35px 0; margin-bottom: 40px; }
         .page-header h1 { font-size: 2rem; font-weight: 700; color: white; }
         .breadcrumb-custom { background: transparent; padding: 0; margin-bottom: 12px; }
         .breadcrumb-custom a { color: #ffd966; text-decoration: none; }
         .authentic-block { background: #eaf6e6; border-left: 8px solid #2e7d32; padding: 18px; border-radius: 12px; }
         .authentic-title { font-size: 2rem; font-weight: 800; color: #2e7d32; letter-spacing: 1px; margin-bottom: 5px; }
-        .authentic-definition { font-size: 1rem; font-style: normal; color: #2c3e50; margin-left: 0; }
+        .authentic-definition { font-size: 1rem; color: #2c3e50; }
         .authentic-definition::before { content: ": "; font-weight: bold; }
         
-        /* زر Validate Certificate - أزرق */
         .btn-validate { background-color: #007bff; border: none; padding: 12px 35px; font-weight: 700; font-size: 1.1rem; transition: 0.2s; }
         .btn-validate:hover { background-color: #0056b3; transform: translateY(-2px); }
         
-        .cert-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: none; }
+        .cert-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         .cert-header { background: #2e7d32; padding: 18px 24px; color: white; font-weight: 700; font-size: 1.3rem; }
         .verified-badge { background: #f5f5f5; border-radius: 16px; text-align: center; padding: 20px 10px; }
         .verified-badge img { max-width: 140px; width: 100%; }
@@ -70,14 +94,6 @@
         .footer-links a { color: #007bff; text-decoration: none; }
         .footer-links a:hover { text-decoration: underline; }
         .copyright { background: #0f1a22; padding: 15px 0; margin-top: 30px; font-size: 0.85rem; }
-        
-        /* تحسين حجم الشعار على الموبايل */
-        @media (max-width: 768px) {
-            .page-header h1 { font-size: 1.6rem; }
-            .authentic-title { font-size: 1.5rem; }
-            .logo img { max-height: 65px; }  /* حجم مناسب للموبايل */
-            .social-icons a { font-size: 1rem; margin-left: 8px; }
-        }
         .form-control-lg { font-size: 1rem; padding: 12px; }
         .error-msg { color: #d32f2f; font-size: 0.9rem; margin-top: 10px; text-align: center; }
         .certificate-id-input { font-family: monospace; letter-spacing: 0.5px; }
@@ -90,29 +106,32 @@
         <div class="header-container">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-md-4 col-8">
+                    <div class="col-md-3 col-6">
                         <div class="logo">
                             <a href="https://www.oshacademy.com/index.html">
-                                <!-- استخدام ../ للوصول للصورة من المجلد الرئيسي -->
-                                <img src="../osh.png" alt="OSHAcademy Logo" onerror="this.onerror=null; this.src='https://placehold.co/400x90/2e7d32/white?text=OSHAcademy';">
+                                <img src="../osh.png" alt="OSHAcademy Logo" onerror="this.onerror=null; this.src='https://placehold.co/400x85/2e7d32/white?text=OSHAcademy';">
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-8 col-4">
-                        <div class="d-flex justify-content-end align-items-center gap-2">
-                            <div class="social-icons d-none d-md-block">
+                    <div class="col-md-9 col-6">
+                        <div class="d-flex justify-content-end align-items-center gap-3">
+                            <!-- أيقونات السوشيال ميديا (تظهر على سطح المكتب والتابلت) -->
+                            <div class="social-icons d-none d-sm-block">
                                 <a href="https://www.facebook.com/oshacademyofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                 <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-twitter"></i></a>
                                 <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                             </div>
+                            <!-- أزرار Login و Register - تظهر دائماً في الشريط العلوي (حتى على الموبايل) -->
                             <div class="login-register">
                                 <a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
                                 <a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-user-plus"></i> Register</a>
                             </div>
+                            <!-- زر القائمة المنبثقة للموبايل (يظهر فقط في الشاشات الصغيرة) -->
                             <button class="btn btn-sm btn-outline-secondary d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav">
                                 <i class="fas fa-bars"></i>
                             </button>
                         </div>
+                        <!-- القائمة الرئيسية - تنهار على الموبايل -->
                         <div class="main-nav collapse d-md-block" id="mobileNav">
                             <ul class="nav justify-content-end mt-2">
                                 <li class="nav-item"><a class="nav-link" href="https://www.oshacademy.com/index.html">Home</a></li>
@@ -174,8 +193,8 @@
                                         <tbody>
                                             <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong></strong></td>
                                             <tr><th>Title</th><td>Osha construction safety and health</strong></td>
-                                            <tr><th>Hours</th><td>30 hours</strong></td>
-                                            <tr><th>Issue Date</th><td>17-05-2021</strong></td>
+                                            <tr><th>Hours</th><td>30 hours</strong></tr>
+                                            <tr><th>Issue Date</th><td>17-05-2021</strong></tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -244,9 +263,9 @@
                             <table class="detail-table w-100">
                                 <tbody>
                                     <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong></td>
-                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong></td>
-                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong></td>
-                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong></td>
+                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong></tr>
+                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong></tr>
+                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong></tr>
                                 </tbody>
                             </table>
                         </div>
