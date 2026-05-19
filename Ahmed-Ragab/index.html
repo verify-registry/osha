@@ -23,36 +23,41 @@
         .header-container {
             background: #fff;
             box-shadow: 0 2px 8px rgba(0,0,0,.05);
-            padding: 5px 0;   /* هامش علوي صغير جداً */
+            padding: 0;  /* إزالة أي هامش علوي */
         }
         .logo img {
-            max-height: 90px;
+            max-height: 180px;   /* تكبير كبير */
             width: auto;
             display: block;
         }
-        /* أيقونات السوشيال ميديا (أقصى اليمين) */
-        .social-icons-top {
+        /* القائمة العلوية (Resources, Store, About Us) */
+        .nav-links {
             display: flex;
-            gap: 18px;
+            gap: 20px;
             align-items: center;
-            order: 3;   /* يضمن أن تكون في أقصى اليمين */
+            margin: 0 20px;
         }
-        .social-icons-top a {
-            color: #000;
-            font-size: 1.1rem;
-            transition: color 0.2s ease;
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e50;
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
-        .social-icons-top a:hover {
+        .nav-links a i {
+            font-size: 10px;
+            color: #666;
+        }
+        .nav-links a:hover {
             color: #e66a2c;
         }
-        /* أزرار Login/Register (على يسار أيقونات السوشيال) */
+        /* أزرار Login/Register */
         .auth-buttons {
             display: flex;
             gap: 15px;
             align-items: center;
-            margin-right: 20px;
-            order: 2;
         }
         .auth-buttons a {
             font-size: 14px;
@@ -67,7 +72,22 @@
             font-size: 14px;
             color: #000;
         }
-        /* زر الهامبرغر للموبايل */
+        /* أيقونات وسائل التواصل (أقصى اليمين) */
+        .social-icons-top {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+        .social-icons-top a {
+            color: #000;
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+            text-decoration: none;
+        }
+        .social-icons-top a:hover {
+            color: #e66a2c;
+        }
+        /* زر الهامبرغر للموبايل (يُظهر قائمة منسدلة) */
         .mobile-menu-btn {
             background: none;
             border: none;
@@ -75,12 +95,11 @@
             padding: 0;
             margin-left: 15px;
             display: none;
-            order: 4;
         }
-        /* Offcanvas للموبايل (من الأعلى) */
+        /* Offcanvas للموبايل */
         .offcanvas-top {
             height: auto;
-            max-height: 250px;
+            max-height: 300px;
             border-radius: 0 0 12px 12px;
         }
         .mobile-nav-links {
@@ -100,30 +119,24 @@
             align-items: center;
             gap: 10px;
         }
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 768px) {
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
             .logo img {
-                max-height: 60px;
+                max-height: 120px;
             }
-            .social-icons-top, .auth-buttons {
+            .nav-links, .auth-buttons, .social-icons-top {
                 display: none !important;
             }
             .mobile-menu-btn {
                 display: block;
             }
-            .page-header h1 {
-                font-size: 1.5rem;
-            }
-            .authentic-title {
-                font-size: 1.5rem;
-            }
         }
-        @media (min-width: 769px) {
+        @media (min-width: 993px) {
             .mobile-only {
                 display: none !important;
             }
         }
-        /* ========== باقي التنسيقات (مثل السابق) ========== */
+        /* باقي التنسيقات (الصفحة كما هي) */
         .page-header {
             background: linear-gradient(95deg, #1e3c2c 0%, #2a5a3a 100%);
             padding: 30px 0;
@@ -231,9 +244,6 @@
             color: #4ea3ff;
             text-decoration: none;
         }
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
         .footer-social-icons {
             display: flex;
             gap: 20px;
@@ -268,30 +278,36 @@
     <div class="header-container">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-4 col-8">
+                <div class="col-md-3 col-7">
                     <div class="logo">
                         <a href="https://www.oshacademy.com/index.html">
                             <img src="../assets/osh.png" alt="OSHAcademy Logo"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/400x90/2e7d32/white?text=OSHAcademy';">
+                                 onerror="this.onerror=null; this.src='https://placehold.co/500x180/2e7d32/white?text=OSHAcademy';">
                         </a>
                     </div>
                 </div>
-                <div class="col-md-8 col-4">
+                <div class="col-md-9 col-5">
                     <div class="d-flex justify-content-end align-items-center">
-                        <!-- أزرار Login/Register (على يسار أيقونات السوشيال) -->
-                        <div class="auth-buttons d-none d-md-flex">
+                        <!-- Login / Register -->
+                        <div class="auth-buttons d-none d-lg-flex">
                             <a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
                             <a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-user-plus"></i> Register</a>
                         </div>
+                        <!-- القوائم العلوية (Resources, Store, About Us) -->
+                        <div class="nav-links d-none d-lg-flex">
+                            <a href="https://www.oshacademy.com/pages/resources/">RESOURCES <i class="fas fa-chevron-down"></i></a>
+                            <a href="https://store.oshacademy.com/" target="_blank">STORE <i class="fas fa-chevron-down"></i></a>
+                            <a href="https://www.oshacademy.com/pages/about-us/about-OSHAcademy.html">ABOUT US <i class="fas fa-chevron-down"></i></a>
+                        </div>
                         <!-- أيقونات وسائل التواصل (أقصى اليمين) -->
-                        <div class="social-icons-top d-none d-md-flex">
+                        <div class="social-icons-top d-none d-lg-flex">
                             <a href="https://www.facebook.com/oshacademyofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-x-twitter"></i></a>   <!-- شعار X الجديد -->
                             <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                             <a href="https://www.pinterest.com/oshacademy/" target="_blank"><i class="fab fa-pinterest-p"></i></a>
                         </div>
                         <!-- زر الهامبرغر للموبايل -->
-                        <button class="mobile-menu-btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+                        <button class="mobile-menu-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
                             <i class="fas fa-bars"></i>
                         </button>
                     </div>
@@ -300,7 +316,7 @@
         </div>
     </div>
 
-    <!-- Offcanvas للموبايل -->
+    <!-- Offcanvas للموبايل (يظهر من الأعلى) -->
     <div class="offcanvas offcanvas-top mobile-only" tabindex="-1" id="mobileMenu">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title">Menu</h5>
@@ -310,6 +326,9 @@
             <ul class="mobile-nav-links">
                 <li><a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-sign-in-alt"></i> Login</a></li>
                 <li><a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-user-plus"></i> Register</a></li>
+                <li><a href="https://www.oshacademy.com/pages/resources/">RESOURCES</a></li>
+                <li><a href="https://store.oshacademy.com/" target="_blank">STORE</a></li>
+                <li><a href="https://www.oshacademy.com/pages/about-us/about-OSHAcademy.html">ABOUT US</a></li>
             </ul>
         </div>
     </div>
@@ -359,10 +378,10 @@
                             <div class="col-md-8">
                                 <table class="detail-table">
                                     <tbody>
-                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong> </strong> </td> </tr>
-                                        <tr><th>Title</th><td>OSHA Construction Safety and Health</strong> </td> </tr>
-                                        <tr><th>Hours</th><td>30 Hours</strong> </td> </tr>
-                                        <tr><th>Issue Date</th><td>17-05-2021</strong> </td> </tr>
+                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong> </strong> </td>
+                                        <tr><th>Title</th><td>OSHA Construction Safety and Health</strong> </td>
+                                        <tr><th>Hours</th><td>30 Hours</strong> </td>
+                                        <tr><th>Issue Date</th><td>17-05-2021</strong> </td>
                                     </tbody>
                                 </table>
                             </div>
@@ -402,7 +421,7 @@
                 </ul>
                 <div class="footer-social-icons">
                     <a href="https://www.facebook.com/oshacademyofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-x-twitter"></i></a>
                     <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://www.pinterest.com/oshacademy/" target="_blank"><i class="fab fa-pinterest-p"></i></a>
                 </div>
@@ -436,7 +455,12 @@
 
     function escapeHtml(str) {
         if (!str) return '';
-        return str.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]);
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
     }
 
     function renderCertificateResult(certId, certData) {
@@ -454,10 +478,10 @@
                         <div class="col-md-8">
                             <table class="detail-table">
                                 <tbody>
-                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong> </td> </tr>
-                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong> </td> </tr>
-                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong> </td> <tr>
-                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong> </td> </tr>
+                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong> </td>
+                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong> </td>
+                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong> </td>
+                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong> </td>
                                 </tbody>
                             </table>
                         </div>
