@@ -22,16 +22,15 @@
         .header-container {
             background: #fff;
             box-shadow: 0 2px 8px rgba(0,0,0,.05);
-            padding: 8px 0;   /* تقليل الهوامش العلوية والسفلية */
+            padding: 8px 0;
         }
         .logo img {
-            max-height: 140px;  /* تكبير اللوجو */
+            max-height: 140px;
             width: auto;
             height: auto;
             display: block;
             object-fit: contain;
         }
-        /* لم تعد هناك أيقونات سوشيال ميديا */
         .login-register {
             display: flex;
             align-items: center;
@@ -48,7 +47,7 @@
             margin-right: 5px;
             color: #000;
         }
-        /* روابط القائمة الرئيسية باللون الأزرق */
+        /* قائمة مبسطة: Home و Validate Certificate فقط */
         .main-nav .nav-link {
             font-weight: 600;
             color: #0a58ca;
@@ -66,7 +65,7 @@
         /* ================= MOBILE ================= */
         @media (max-width: 768px) {
             .logo img {
-                max-height: 95px;  /* تكبير على الموبايل */
+                max-height: 95px;
             }
             .login-register {
                 gap: 10px;
@@ -219,7 +218,6 @@
                 </div>
                 <div class="col-md-8 col-5">
                     <div class="d-flex justify-content-end align-items-center flex-wrap">
-                        <!-- Login / Register (أيقونات التواصل الاجتماعي تم إزالتها نهائياً) -->
                         <div class="login-register">
                             <a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
                             <a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-user-plus"></i> Register</a>
@@ -228,14 +226,11 @@
                             <i class="fas fa-bars"></i>
                         </button>
                     </div>
-                    <!-- القائمة الرئيسية -->
+                    <!-- القائمة المبسطة: Home و Validate Certificate فقط -->
                     <div class="main-nav collapse d-md-block" id="mobileNav">
                         <ul class="nav justify-content-end mt-2">
                             <li class="nav-item"><a class="nav-link" href="https://www.oshacademy.com/index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="https://www.oshacademy.com/programs/">Training</a></li>
-                            <li class="nav-item"><a class="nav-link" href="https://www.oshacademy.com/student/">Students</a></li>
                             <li class="nav-item"><a class="nav-link active" href="#">Validate Certificate</a></li>
-                            <li class="nav-item"><a class="nav-link" href="https://www.oshacademy.com/pages/resources/">Resources</a></li>
                         </ul>
                     </div>
                 </div>
@@ -290,10 +285,10 @@
                             <div class="col-md-8">
                                 <table class="detail-table">
                                     <tbody>
-                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
-                                        <tr><th>Title</th><td>OSHA Construction Safety and Health</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
-                                        <tr><th>Hours</th><td>30 Hours</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
-                                        <tr><th>Issue Date</th><td>17-05-2021</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
+                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
+                                        <tr><th>Title</th><td>OSHA Construction Safety and Health</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
+                                        <tr><th>Hours</th><td>30 Hours</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
+                                        <tr><th>Issue Date</th><td>17-05-2021</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -384,10 +379,10 @@
                         <div class="col-md-8">
                             <table class="detail-table">
                                 <tbody>
-                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
-                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
-                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
-                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
+                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong> </strong> </strong> </strong> </strong> </td> </tr>
+                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong> </strong> </strong> </strong> </strong> </td> </tr>
+                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong> </strong> </strong> </strong> </strong> </td> </tr>
+                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong> </strong> </strong> </strong> </strong> </td> </tr>
                                 </tbody>
                             </table>
                         </div>
