@@ -18,7 +18,7 @@
         * { font-family: 'Open Sans', sans-serif; }
         body { background-color: #f4f4f4; color: #2c3e50; }
         .header-container { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 12px 0; }
-        .logo img, .logo-secondary img, .verified-badge img { max-height: 60px; width: auto; }
+        .logo img, .logo-secondary img { max-height: 60px; width: auto; }
         .logo-secondary img { max-height: 50px; }
         .social-icons a { background: #e66a2c; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; color: white; margin: 0 3px; transition: 0.2s; }
         .social-icons a:hover { background: #c2541a; }
@@ -31,12 +31,15 @@
         .breadcrumb-custom { background: transparent; padding: 0; margin-bottom: 12px; }
         .breadcrumb-custom a { color: #ffd966; text-decoration: none; }
         .authentic-block { background: #eaf6e6; border-left: 8px solid #2e7d32; padding: 18px; border-radius: 12px; }
-        .authentic-title { font-size: 2rem; font-weight: 800; color: #2e7d32; letter-spacing: 1px; }
+        .authentic-title { font-size: 2rem; font-weight: 800; color: #2e7d32; letter-spacing: 1px; margin-bottom: 5px; }
+        .authentic-definition { font-size: 1rem; font-style: normal; color: #2c3e50; margin-left: 0; }
+        .authentic-definition::before { content: ": "; font-weight: bold; }
         .btn-validate { background-color: #2e7d32; border: none; padding: 12px 35px; font-weight: 700; font-size: 1.1rem; transition: 0.2s; }
         .btn-validate:hover { background-color: #1b5e20; transform: translateY(-2px); }
         .cert-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: none; }
         .cert-header { background: #2e7d32; padding: 18px 24px; color: white; font-weight: 700; font-size: 1.3rem; }
         .verified-badge { background: #f5f5f5; border-radius: 16px; text-align: center; padding: 20px 10px; }
+        .verified-badge img { max-width: 140px; width: 100%; }
         .verified-text { font-weight: 800; color: #2e7d32; margin-top: 10px; font-size: 0.9rem; letter-spacing: 1px; }
         .detail-table th, .detail-table td { padding: 12px 15px; border-bottom: 1px solid #e9ecef; }
         .detail-table th { background: #f8f9fa; font-weight: 700; width: 40%; }
@@ -52,13 +55,12 @@
         .form-control-lg { font-size: 1rem; padding: 12px; }
         .error-msg { color: #d32f2f; font-size: 0.9rem; margin-top: 10px; text-align: center; }
         .certificate-id-input { font-family: monospace; letter-spacing: 0.5px; }
-        .img-warning { font-size: 11px; color: #d32f2f; display: block; margin-top: 5px; }
     </style>
 </head>
 <body>
 
 <div class="body-wrapper">
-    <!-- HEADER with official links -->
+    <!-- HEADER: all links point to real OSHAcademy pages -->
     <header>
         <div class="header-container">
             <div class="container">
@@ -67,12 +69,11 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="logo">
                                 <a href="https://www.oshacademy.com/index.html">
-                                    <img src="osh.png" alt="OSHAcademy Logo" id="mainLogo" onerror="handleImageError(this, 'osh.png')">
-                                    <span class="img-warning" id="logoWarning" style="display:none;"></span>
+                                    <img src="osh.png" alt="OSHAcademy Logo" onerror="this.onerror=null; this.src='https://placehold.co/327x60/2e7d32/white?text=OSHAcademy';">
                                 </a>
                             </div>
                             <div class="logo-secondary">
-                                <img src="2.png" alt="Since 1999" id="sinceLogo" onerror="handleImageError(this, '2.png')">
+                                <img src="2.png" alt="Since 1999" onerror="this.onerror=null; this.src='https://placehold.co/100x50/2e7d32/white?text=1999';">
                             </div>
                         </div>
                     </div>
@@ -116,10 +117,11 @@
 
     <div class="container">
         <div class="row g-5">
+            <!-- LEFT COLUMN: Validation Form (CAPTCHA removed) -->
             <div class="col-lg-5">
                 <div class="authentic-block mb-4">
                     <div class="authentic-title">Authentic</div>
-                    <p class="mb-0">: genuine; real; not false or copied</p>
+                    <p class="authentic-definition mb-0">genuine, real, and verifiable — not a copy, not a forgery.</p>
                 </div>
                 <p>Verifying the authenticity of a safety training certificate confirms the individual's completion of required training, upholds safety standards, and guards against fraud, and helps ensure the necessary knowledge to perform tasks safely and responsibly.</p>
                 
@@ -136,39 +138,26 @@
                 </form>
             </div>
             
+            <!-- RIGHT COLUMN: Certificate Result with Ahmed Ragab Salah Mohamed data -->
             <div class="col-lg-7">
                 <div id="resultPanel">
-                    <div class="cert-card" id="defaultCertificate">
+                    <div class="cert-card">
                         <div class="cert-header"><i class="fas fa-shield-alt me-2"></i> Authentic Certificate: OSHA-AHMED-30H-210517</div>
                         <div class="p-4">
                             <div class="row">
                                 <div class="col-md-4 text-center mb-4">
                                     <div class="verified-badge">
-                                        <img src="verified.png" alt="VERIFIED TRAINING" id="verifiedImg" onerror="handleImageError(this, 'verified.png')">
+                                        <img src="verified.png" alt="VERIFIED TRAINING" onerror="this.onerror=null; this.src='https://placehold.co/150x150/2e7d32/white?text=VERIFIED';">
                                         <div class="verified-text mt-2">VERIFIED TRAINING<br>GENUINE ★ AUTHENTIC ★ ORIGINAL</div>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <table class="detail-table w-100">
                                         <tbody>
-                                            <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong></strong></td></tr>
-                                            <tr><th>Title</th><td>Osha construction safety and health</td></tr>
-                                            <tr><th>Hours</th><td>30 hours</td></tr>
-                                            <tr><th>Issue Date</th><td>17-05-2021</td></tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="gradient-divider"></div>
-                            <p class="text-muted">This certificate has been verified as authentic and valid, attesting to the individual's successful completion of the OSHAcademy safety training. It provides assurance that the recipient possesses the safety and health knowledge encompassed in the area of study.</p>
-                            <div class="text-end mt-3"><i class="fas fa-stamp text-success"></i> <span class="small">IACET Accredited Provider</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                                            <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong></strong></td>
+                                            <tr><th>Title</th><td>Osha construction safety and health</strong></td> </tr> <tr> <th>Hours</th> <td>30 hours</td> </tr> <tr> <th>Issue Date</th> <td>17-05-2021</td> </tr> </tbody> </table> </div> </div> <div class="gradient-divider"></div> <p class="text-muted">This certificate has been verified as authentic and valid, attesting to the individual's successful completion of the OSHAcademy safety training. It provides assurance that the recipient possesses the safety and health knowledge encompassed in the area of study.</p> <div class="text-end mt-3"><i class="fas fa-stamp text-success"></i> <span class="small">IACET Accredited Provider</span></div> </div> </div> </div> </div> </div> </div>
 
+    <!-- FOOTER with official links -->
     <footer>
         <div class="container">
             <div class="row">
@@ -206,33 +195,7 @@
 </div>
 
 <script>
-    // Helper function to show error if image fails to load
-    function handleImageError(imgElement, expectedFilename) {
-        console.error(`❌ Image not loaded: ${expectedFilename}. Please make sure the file exists in the same folder as this HTML file.`);
-        imgElement.style.border = "2px solid red";
-        imgElement.style.padding = "2px";
-        // Show a fallback text next to image (if needed)
-        const warningSpan = document.createElement('span');
-        warningSpan.className = 'img-warning';
-        warningSpan.innerText = `⚠️ Missing: ${expectedFilename}`;
-        imgElement.parentNode.appendChild(warningSpan);
-    }
-
-    // Check all images after page load
-    window.addEventListener('load', function() {
-        const images = document.querySelectorAll('img');
-        images.forEach(img => {
-            if (!img.complete || img.naturalWidth === 0) {
-                if (img.src && !img.src.includes('placehold')) {
-                    console.warn(`Image not loaded: ${img.src}`);
-                }
-            } else {
-                console.log(`✅ Loaded: ${img.src}`);
-            }
-        });
-    });
-
-    // Certificate Database
+    // Certificate database with Ahmed Ragab Salah Mohamed data
     const certificatesDB = {
         "OSHA-AHMED-30H-210517": { student: "Ahmed Ragab Salah Mohamed", title: "Osha construction safety and health", hours: "30 hours", issueDate: "17-05-2021" },
         "1050589-C345-210517-962021": { student: "Ahmed Ragab Salah Mohamed", title: "Osha construction safety and health", hours: "30 hours", issueDate: "17-05-2021" },
@@ -247,55 +210,12 @@
                     <div class="row">
                         <div class="col-md-4 text-center mb-4">
                             <div class="verified-badge">
-                                <img src="verified.png" alt="VERIFIED TRAINING" id="verifiedImgNew" onerror="handleImageError(this, 'verified.png')">
+                                <img src="verified.png" alt="VERIFIED TRAINING" onerror="this.onerror=null; this.src='https://placehold.co/150x150/2e7d32/white?text=VERIFIED';">
                                 <div class="verified-text mt-2">VERIFIED TRAINING<br>GENUINE ★ AUTHENTIC ★ ORIGINAL</div>
                             </div>
                         </div>
                         <div class="col-md-8">
                             <table class="detail-table w-100">
                                 <tbody>
-                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong></td></tr>
-                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</td></tr>
-                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</td></tr>
-                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="gradient-divider"></div>
-                    <p class="text-muted">This certificate has been verified as authentic and valid, attesting to the individual's successful completion of the OSHAcademy safety training. It provides assurance that the recipient possesses the safety and health knowledge encompassed in the area of study.</p>
-                    <div class="text-end mt-3"><i class="fas fa-stamp text-success"></i> <span class="small">IACET Accredited Provider</span></div>
-                </div>
-            </div>
-        `;
-    }
-    
-    function renderErrorResult(message) {
-        document.getElementById("resultPanel").innerHTML = `
-            <div class="cert-card border-danger" style="border:1px solid #dc3545;">
-                <div class="cert-header bg-danger" style="background:#b71c1c !important;"><i class="fas fa-exclamation-triangle me-2"></i> Certificate Validation Failed</div>
-                <div class="p-4">
-                    <div class="alert alert-danger"><i class="fas fa-times-circle me-2"></i> ${escapeHtml(message)}</div>
-                    <p>Please verify the Certificate ID and try again. If you believe this is an error, contact support.</p>
-                    <hr><small class="text-muted">Valid sample IDs: <strong>OSHA-AHMED-30H-210517</strong> or <strong>1050589-C345-210517-962021</strong></small>
-                </div>
-            </div>
-        `;
-    }
-    
-    function escapeHtml(str) { return str.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]); }
-    function validateCertificate(certId) {
-        certId = certId.trim();
-        return certificatesDB[certId] ? { success: true, data: certificatesDB[certId], certId } : { success: false, message: "Certificate ID not found in our records. Please check the ID and try again." };
-    }
-    
-    document.getElementById("validateForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-        const result = validateCertificate(document.getElementById("certificateId").value);
-        result.success ? renderCertificateResult(result.certId, result.data) : renderErrorResult(result.message);
-    });
-    if(document.getElementById("certificateId").value === "") document.getElementById("certificateId").value = "OSHA-AHMED-30H-210517";
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong></td>
+                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</td> </tr> <tr> <th>Hours</th> <td>${escapeHtml(certData.hours)}</td> </tr> <tr> <th>Issue Date</th> <td>${escapeHtml(certData.issueDate)}</td> </tr> </tbody> </table> </div> </div> <div class="gradient-divider"></div> <p class="text-muted">This certificate has been verified as authentic and valid, attesting to the individual's successful completion of the OSHAcademy safety training. It provides assurance that the recipient possesses the safety and health knowledge encompassed in the area of study.</p> <div class="text-end mt-3"><i class="fas fa-stamp text-success"></i> <span class="small">IACET Accredited Provider</span></div> </div> </div> `; } function renderErrorResult(message) { document.getElementById("resultPanel").innerHTML = ` <div class="cert-card border-danger" style="border:1px solid #dc3545;"> <div class="cert-header bg-danger" style="background:#b71c1c !important;"><i class="fas fa-exclamation-triangle me-2"></i> Certificate Validation Failed</div> <div class="p-4"> <div class="alert alert-danger"><i class="fas fa-times-circle me-2"></i> ${escapeHtml(message)}</div> <p>Please verify the Certificate ID and try again. If you believe this is an error, contact support.</p> <hr><small class="text-muted">Valid sample IDs: <strong>OSHA-AHMED-30H-210517</strong> or <strong>1050589-C345-210517-962021</strong></small> </div> </div> `; } function escapeHtml(str) { return str.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[m]); } function validateCertificate(certId) { certId = certId.trim(); return certificatesDB[certId] ? { success: true, data: certificatesDB[certId], certId } : { success: false, message: "Certificate ID not found in our records. Please check the ID and try again." }; } document.getElementById("validateForm").addEventListener("submit", function(e) { e.preventDefault(); const result = validateCertificate(document.getElementById("certificateId").value); result.success ? renderCertificateResult(result.certId, result.data) : renderErrorResult(result.message); }); if(document.getElementById("certificateId").value === "") document.getElementById("certificateId").value = "OSHA-AHMED-30H-210517"; </script> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> </body> </html>
