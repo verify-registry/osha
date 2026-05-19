@@ -1,500 +1,582 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Ahmed Ragab Salah Mohamed | Certificate Validation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            font-family: 'Open Sans', sans-serif;
-            box-sizing: border-box;
-        }
-        body {
-            background: #f4f4f4;
-            color: #2c3e50;
-            margin: 0;
-            padding: 0;
-        }
-        /* ================= HEADER ================= */
-        .header-container {
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,.05);
-            padding: 0;
-            margin: 0;
-        }
-        .header-container .container {
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-        .logo {
-            line-height: 0;
-            margin: 0;
-            padding: 0;
-        }
-        .logo img {
-            max-height: 130px;
-            width: auto;
-            height: auto;
-            display: block;
-            margin: 0;
-            padding: 0;
-        }
-        /* أيقونات السوشيال ميديا (أقصى اليمين) */
-        .social-icons-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        .social-icons-header a {
-            color: #000;
-            font-size: 1.2rem;
-            transition: 0.2s;
-        }
-        .social-icons-header a:hover {
-            color: #e66a2c;
-        }
-        /* Login/Register (على يسار أيقونات السوشيال) */
-        .login-register {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-right: 20px;
-        }
-        .login-register a {
-            font-size: 14px;
-            font-weight: 600;
-            color: #2c3e50;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-        .login-register a i {
-            margin-right: 5px;
-            color: #000;
-        }
-        /* ================= MOBILE DROPDOWN (من الأعلى) ================= */
-        @media (max-width: 768px) {
-            .logo img {
-                max-height: 85px;
-            }
-            .social-icons-header, .login-register {
-                display: none;
-            }
-            .navbar-toggler {
-                border: none;
-                background: transparent;
-                font-size: 1.5rem;
-                padding: 0;
-            }
-            .offcanvas-top {
-                height: auto;
-                min-height: auto;
-                max-height: 250px;
-                border-radius: 0 0 12px 12px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            }
-            .offcanvas-top .offcanvas-body {
-                padding: 0;
-            }
-            .mobile-nav-links {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-            .mobile-nav-links li {
-                padding: 12px 20px;
-                border-bottom: 1px solid #eee;
-            }
-            .mobile-nav-links li a {
-                color: #2c3e50;
-                text-decoration: none;
-                font-weight: 600;
-                display: block;
-                font-size: 1rem;
-            }
-            .mobile-nav-links li a i {
-                margin-right: 12px;
-                width: 20px;
-                color: #000;
-            }
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Ahmed Ragab Salah Mohamed | Certificate Validation</title>
+  <!-- Open Sans Font as per official site -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6 for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* ================= PAGE HEADER ================= */
-        .page-header {
-            background: linear-gradient(95deg, #1e3c2c 0%, #2a5a3a 100%);
-            padding: 35px 0;
-            margin-bottom: 45px;
-        }
-        .page-header h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #fff;
-        }
-        .breadcrumb-custom a {
-            color: #ffd966;
-            text-decoration: none;
-        }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f4f4f4;
+      color: #2c3e50;
+      line-height: 1.5;
+    }
 
-        /* ================= AUTHENTIC BLOCK ================= */
-        .authentic-block {
-            background: #eaf6e6;
-            border-left: 8px solid #2e7d32;
-            padding: 18px;
-            border-radius: 14px;
-        }
-        .authentic-title {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #2e7d32;
-            margin-bottom: 5px;
-        }
-        .authentic-definition {
-            font-size: 1rem;
-        }
-        .authentic-definition::before {
-            content: ": ";
-            font-weight: bold;
-        }
-        .btn-validate {
-            background: #007bff;
-            border: none;
-            padding: 12px 35px;
-            font-weight: 700;
-            transition: 0.2s;
-        }
-        .btn-validate:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-        }
+    /* --- Header Styles (Matches Official Site's Minimalist Look) --- */
+    .header-container {
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
 
-        /* ================= CERTIFICATE CARD ================= */
-        .cert-card {
-            background: #fff;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-        }
-        .cert-header {
-            background: #2e7d32;
-            padding: 18px 24px;
-            color: #fff;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-        .verified-badge {
-            background: #f5f5f5;
-            border-radius: 16px;
-            text-align: center;
-            padding: 20px 10px;
-        }
-        .verified-badge img {
-            max-width: 140px;
-            width: 100%;
-        }
-        .verified-text {
-            font-weight: 800;
-            color: #2e7d32;
-            margin-top: 10px;
-            font-size: 0.88rem;
-        }
-        .detail-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .detail-table th, .detail-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #e9ecef;
-        }
-        .detail-table th {
-            background: #f8f9fa;
-            font-weight: 700;
-            width: 40%;
-        }
-        .gradient-divider {
-            height: 4px;
-            background: linear-gradient(90deg, #2e7d32, #ffb74d);
-            margin: 25px 0;
-            border-radius: 2px;
-        }
+    .logo-img {
+      max-height: 85px;
+      width: auto;
+      display: block;
+    }
 
-        /* ================= FOOTER ================= */
-        footer {
-            background: #1a2a36;
-            color: #cddce9;
-            margin-top: 70px;
-            padding: 45px 0 20px;
-        }
-        .footer-links a {
-            color: #4ea3ff;
-            text-decoration: none;
-        }
-        .footer-social-icons {
-            margin-top: 15px;
-            display: flex;
-            gap: 20px;
-        }
-        .footer-social-icons a {
-            color: #cddce9;
-            font-size: 1.3rem;
-            transition: 0.2s;
-        }
-        .footer-social-icons a:hover {
-            color: #fff;
-        }
-        .copyright {
-            background: #0f1a22;
-            padding: 15px 0;
-            margin-top: 30px;
-            font-size: 0.85rem;
-        }
-        .error-msg {
-            color: #d32f2f;
-            font-size: 0.9rem;
-            margin-top: 12px;
-            text-align: center;
-        }
-    </style>
+    /* Social Icons (Top Right) */
+    .social-icons-top {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      margin-right: 20px;
+    }
+
+    .social-icons-top a {
+      color: #000;
+      font-size: 1.1rem;
+      transition: color 0.2s ease;
+      text-decoration: none;
+    }
+
+    .social-icons-top a:hover {
+      color: #e66a2c; /* OSHAcademy orange hover */
+    }
+
+    /* Login/Register Buttons */
+    .auth-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .auth-buttons a {
+      font-size: 14px;
+      font-weight: 600;
+      color: #2c3e50;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .auth-buttons a i {
+      font-size: 14px;
+      color: #000;
+    }
+
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      padding: 0;
+      margin-left: 15px;
+      display: none;
+    }
+
+    /* Offcanvas Mobile Menu (Top Dropdown) */
+    .offcanvas-top {
+      height: auto;
+      max-height: 250px;
+      border-radius: 0 0 12px 12px;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .mobile-nav-links li {
+      padding: 12px 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .mobile-nav-links li a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* --- Page Header (Hero Section) --- */
+    .page-header {
+      background: linear-gradient(95deg, #1e3c2c 0%, #2a5a3a 100%);
+      padding: 30px 0;
+      margin-bottom: 45px;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+      margin: 0;
+    }
+
+    .breadcrumb-custom {
+      margin-bottom: 12px;
+    }
+
+    .breadcrumb-custom a {
+      color: #ffd966;
+      text-decoration: none;
+    }
+
+    /* --- Authentic Block (Adjusted spacing) --- */
+    .authentic-block {
+      background: #eaf6e6;
+      border-left: 8px solid #2e7d32;
+      padding: 18px;
+      border-radius: 14px;
+    }
+
+    .authentic-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #2e7d32;
+      margin-bottom: 5px;
+    }
+
+    .authentic-definition {
+      font-size: 1rem;
+    }
+
+    .authentic-definition::before {
+      content: ": ";
+      font-weight: bold;
+    }
+
+    /* --- Validate Button (Blue as per original) --- */
+    .btn-validate {
+      background-color: #007bff;
+      border: none;
+      padding: 12px 35px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+
+    .btn-validate:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    /* --- Certificate Card --- */
+    .cert-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s;
+    }
+
+    .cert-header {
+      background-color: #2e7d32;
+      padding: 18px 24px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .verified-badge {
+      background: #f8f9fa;
+      border-radius: 16px;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .verified-badge img {
+      max-width: 130px;
+      width: 100%;
+    }
+
+    .verified-text {
+      font-weight: 800;
+      color: #2e7d32;
+      margin-top: 10px;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    /* Details Table */
+    .detail-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .detail-table th,
+    .detail-table td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #e9ecef;
+      vertical-align: top;
+    }
+
+    .detail-table th {
+      background-color: #f8f9fa;
+      font-weight: 700;
+      width: 40%;
+    }
+
+    .gradient-divider {
+      height: 4px;
+      background: linear-gradient(90deg, #2e7d32, #ffb74d);
+      margin: 25px 0;
+      border-radius: 2px;
+    }
+
+    /* --- Footer --- */
+    footer {
+      background-color: #1a2a36;
+      color: #cddce9;
+      margin-top: 70px;
+      padding: 45px 0 20px;
+    }
+
+    .footer-links a {
+      color: #4ea3ff;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-social-icons {
+      display: flex;
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .footer-social-icons a {
+      color: #cddce9;
+      font-size: 1.3rem;
+      transition: color 0.2s;
+    }
+
+    .footer-social-icons a:hover {
+      color: white;
+    }
+
+    .copyright {
+      background-color: #0f1a22;
+      padding: 15px 0;
+      margin-top: 30px;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      .logo-img {
+        max-height: 60px;
+      }
+      /* Hide desktop auth & social icons, show hamburger menu */
+      .desktop-only {
+        display: none !important;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .page-header h1 {
+        font-size: 1.5rem;
+      }
+      .authentic-title {
+        font-size: 1.5rem;
+      }
+      .cert-header {
+        font-size: 1rem;
+        padding: 15px;
+      }
+      .verified-badge img {
+        max-width: 100px;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-only {
+        display: none !important;
+      }
+    }
+
+    /* Error message styling */
+    .error-msg {
+      color: #d32f2f;
+      font-size: 0.9rem;
+      margin-top: 12px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
+<!-- Header -->
 <header>
-    <div class="header-container">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-4 col-8">
-                    <div class="logo">
-                        <a href="https://www.oshacademy.com/index.html">
-                            <img src="../assets/osh.png" alt="OSHAcademy Logo"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/400x130/2e7d32/white?text=OSHAcademy';">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-8 col-4">
-                    <div class="d-flex justify-content-end align-items-center">
-                        <!-- أزرار Login/Register (على يسار أيقونات السوشيال) -->
-                        <div class="login-register d-none d-md-flex">
-                            <a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
-                            <a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-user-plus"></i> Register</a>
-                        </div>
-                        <!-- أيقونات السوشيال ميديا (أقصى اليمين) -->
-                        <div class="social-icons-header d-none d-md-flex">
-                            <a href="https://www.facebook.com/oshacademyofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-twitter"></i></a>
-                            <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#topMenu" aria-controls="topMenu">
-                            <i class="fas fa-bars"></i>
-                        </button>
-                    </div>
-                </div>
+  <div class="header-container py-2">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4 col-7">
+          <div class="logo">
+            <a href="https://www.oshacademy.com/index.html">
+              <img src="../assets/osh.png" alt="OSHAcademy Logo" class="logo-img" 
+                   onerror="this.onerror=null; this.src='https://placehold.co/400x85/2e7d32/white?text=OSHAcademy';">
+            </a>
+          </div>
+        </div>
+        <div class="col-md-8 col-5">
+          <div class="d-flex justify-content-end align-items-center">
+            <!-- Desktop: Social Icons (Rightmost) + Auth Buttons -->
+            <div class="desktop-only d-flex align-items-center">
+              <div class="social-icons-top">
+                <a href="https://www.facebook.com/oshacademyofficial" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/OSHAcademy" target="_blank" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <!-- Pinterest icon (as seen on official site footer but kept consistent) -->
+                <a href="https://www.pinterest.com/oshacademy/" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+              </div>
+              <div class="auth-buttons">
+                <a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-user-plus"></i> Register</a>
+              </div>
             </div>
+            <!-- Mobile Hamburger Button -->
+            <button class="mobile-menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Offcanvas من الأعلى للموبايل -->
-    <div class="offcanvas offcanvas-top" tabindex="-1" id="topMenu" aria-labelledby="topMenuLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="topMenuLabel">Menu</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul class="mobile-nav-links">
-                <li><a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-                <li><a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-user-plus"></i> Register</a></li>
-            </ul>
-        </div>
+  <!-- Mobile Offcanvas Menu (Top Dropdown) -->
+  <div class="offcanvas offcanvas-top mobile-only" tabindex="-1" id="mobileMenu">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
+    <div class="offcanvas-body">
+      <ul class="mobile-nav-links">
+        <li><a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        <li><a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-user-plus"></i> Register</a></li>
+      </ul>
+    </div>
+  </div>
 </header>
 
+<!-- Page Hero -->
 <section class="page-header">
-    <div class="container">
-        <div class="breadcrumb-custom">
-            <a href="https://www.oshacademy.com/index.html">Home</a> / <span style="color:white">Validate Student Certificate</span>
-        </div>
-        <h1><i class="fas fa-certificate me-2"></i> Validate Student Certificate</h1>
+  <div class="container">
+    <div class="breadcrumb-custom">
+      <a href="https://www.oshacademy.com/index.html">Home</a> / <span style="color:white">Validate Student Certificate</span>
     </div>
+    <h1><i class="fas fa-certificate me-2"></i> Validate Student Certificate</h1>
+  </div>
 </section>
 
+<!-- Main Content -->
 <div class="container">
-    <div class="row g-5">
-        <div class="col-lg-5">
-            <div class="authentic-block mb-4">
-                <div class="authentic-title">Authentic</div>
-                <p class="authentic-definition mb-0">genuine, real, and verifiable — not a copy, not a forgery.</p>
-            </div>
-            <p>Verifying the authenticity of a safety training certificate confirms the individual's completion of required training, upholds safety standards, guards against fraud, and helps ensure the necessary knowledge to perform tasks safely and responsibly.</p>
-
-            <form id="validateForm" class="mt-4">
-                <div class="mb-4">
-                    <label class="form-label fw-bold">Certificate ID</label>
-                    <input type="text" id="certificateId" class="form-control form-control-lg" placeholder="e.g., OSHA-AHMED-30H-210517" value="OSHA-AHMED-30H-210517">
-                    <div class="form-text">The certificate ID can be found in the lower-left corner of the certificate.</div>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-validate btn-lg text-white px-5"><i class="fas fa-check-circle me-2"></i> Validate Certificate</button>
-                </div>
-                <div id="formError" class="error-msg"></div>
-            </form>
+  <div class="row g-5">
+    <!-- Left Column: Verification Form -->
+    <div class="col-lg-5">
+      <div class="authentic-block mb-4">
+        <div class="authentic-title">Authentic</div>
+        <p class="authentic-definition mb-0">genuine, real, and verifiable — not a copy, not a forgery.</p>
+      </div>
+      <p>Verifying the authenticity of a safety training certificate confirms the individual's completion of required training, upholds safety standards, guards against fraud, and helps ensure the necessary knowledge to perform tasks safely and responsibly.</p>
+      <form id="validateForm" class="mt-4">
+        <div class="mb-4">
+          <label class="form-label fw-bold">Certificate ID</label>
+          <input type="text" id="certificateId" class="form-control form-control-lg" placeholder="e.g., OSHA-AHMED-30H-210517" value="OSHA-AHMED-30H-210517">
+          <div class="form-text">The certificate ID can be found in the lower-left corner of the certificate.</div>
         </div>
-
-        <div class="col-lg-7">
-            <div id="resultPanel">
-                <div class="cert-card">
-                    <div class="cert-header"><i class="fas fa-shield-alt me-2"></i> Authentic Certificate: OSHA-AHMED-30H-210517</div>
-                    <div class="p-4">
-                        <div class="row">
-                            <div class="col-md-4 text-center mb-4">
-                                <div class="verified-badge">
-                                    <img src="../assets/verified.png" alt="Verified Badge" onerror="this.onerror=null; this.src='https://placehold.co/150x150/2e7d32/white?text=VERIFIED';">
-                                    <div class="verified-text">VERIFIED TRAINING<br>GENUINE ★ AUTHENTIC ★ ORIGINAL</div>
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <table class="detail-table">
-                                    <tbody>
-                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong> </strong> </td>
-                                        <tr><th>Title</th><td>OSHA Construction Safety and Health</strong> </td>
-                                        <tr><th>Hours</th><td>30 Hours</strong> </td>
-                                        <tr><th>Issue Date</th><td>17-05-2021</strong> </td>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="gradient-divider"></div>
-                        <p class="text-muted">This certificate has been verified as authentic and valid, attesting to the individual's successful completion of the OSHAcademy safety training. It provides assurance that the recipient possesses the safety and health knowledge encompassed in the area of study.</p>
-                        <div class="text-end mt-3"><i class="fas fa-stamp text-success"></i> <span class="small">IACET Accredited Provider</span></div>
-                    </div>
-                </div>
-            </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-validate btn-lg text-white px-5"><i class="fas fa-check-circle me-2"></i> Validate Certificate</button>
         </div>
+        <div id="formError" class="error-msg"></div>
+      </form>
     </div>
+
+    <!-- Right Column: Certificate Display -->
+    <div class="col-lg-7">
+      <div id="resultPanel">
+        <!-- Default Certificate Card (for Ahmed Ragab Salah Mohamed) -->
+        <div class="cert-card">
+          <div class="cert-header">
+            <i class="fas fa-shield-alt me-2"></i> Authentic Certificate: OSHA-AHMED-30H-210517
+          </div>
+          <div class="p-4">
+            <div class="row">
+              <div class="col-md-4 text-center mb-4">
+                <div class="verified-badge">
+                  <img src="../assets/verified.png" alt="Verified Badge" onerror="this.onerror=null; this.src='https://placehold.co/150x150/2e7d32/white?text=VERIFIED';">
+                  <div class="verified-text">VERIFIED TRAINING<br>GENUINE ★ AUTHENTIC ★ ORIGINAL</div>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <table class="detail-table">
+                  <tbody>
+                    <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong></td></tr>
+                    <tr><th>Title</th><td>OSHA Construction Safety and Health</td></tr>
+                    <tr><th>Hours</th><td>30 Hours</td></tr>
+                    <tr><th>Issue Date</th><td>17-05-2021</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="gradient-divider"></div>
+            <p class="text-muted">This certificate has been verified as authentic and valid, attesting to the individual's successful completion of the OSHAcademy safety training. It provides assurance that the recipient possesses the safety and health knowledge encompassed in the area of study.</p>
+            <div class="text-end mt-3"><i class="fas fa-stamp text-success"></i> <span class="small">IACET Accredited Provider</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+<!-- Footer -->
 <footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <h5>Disclaimer</h5>
-                <p>The content provided by OSHAcademy is for educational purposes only. It is not legal advice.</p>
-                <p>OSHAcademy is a division of Geigle Safety Group, Inc., and operates independently from the U.S. Department of Labor and OSHA.</p>
-            </div>
-            <div class="col-md-4">
-                <h5>IACET Accreditation</h5>
-                <img src="../assets/IACET_Logo.jpg" alt="IACET Logo" class="img-fluid mb-3" style="max-width:180px;" onerror="this.onerror=null; this.src='https://placehold.co/180x80/2e7d32/white?text=IACET';">
-                <h5 class="mt-3">Contact Us</h5>
-                <p><i class="fas fa-phone-alt me-2"></i> +1 (971) 217-8721<br>
-                <i class="fas fa-envelope me-2"></i> <a href="https://www.oshacademy.com/pages/about-us/contact-us.php" class="text-white-50">Send us an email</a></p>
-            </div>
-            <div class="col-md-3">
-                <h5>Quick Links</h5>
-                <ul class="list-unstyled footer-links">
-                    <li><a href="https://www.oshacademy.com/pages/students/privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="https://www.oshacademy.com/pages/students/terms-of-service.html">Terms of Service</a></li>
-                    <li><a href="https://www.oshacademy.com/pages/students/transcript-request-info.html">Official Transcript Request</a></li>
-                    <li><a href="https://www.oshacademy.com/pages/about-us/contact-us.php">Contact Us</a></li>
-                </ul>
-                <div class="footer-social-icons">
-                    <a href="https://www.facebook.com/oshacademyofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <h5>Disclaimer</h5>
+        <p>The content provided by OSHAcademy is for educational purposes only. It is not legal advice.</p>
+        <p>OSHAcademy is a division of Geigle Safety Group, Inc., and operates independently from the U.S. Department of Labor and OSHA.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>IACET Accreditation</h5>
+        <img src="../assets/IACET_Logo.jpg" alt="IACET Logo" class="img-fluid mb-3" style="max-width:160px;" onerror="this.onerror=null; this.src='https://placehold.co/160x80/2e7d32/white?text=IACET';">
+        <h5 class="mt-3">Contact Us</h5>
+        <p><i class="fas fa-phone-alt me-2"></i> +1 (971) 217-8721<br>
+        <i class="fas fa-envelope me-2"></i> <a href="https://www.oshacademy.com/pages/about-us/contact-us.php" class="text-white-50">Send us an email</a></p>
+      </div>
+      <div class="col-md-3">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled footer-links">
+          <li><a href="https://www.oshacademy.com/pages/students/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="https://www.oshacademy.com/pages/students/terms-of-service.html">Terms of Service</a></li>
+          <li><a href="https://www.oshacademy.com/pages/students/transcript-request-info.html">Official Transcript Request</a></li>
+          <li><a href="https://www.oshacademy.com/pages/about-us/contact-us.php">Contact Us</a></li>
+        </ul>
+        <!-- Footer Social Icons (All four: Facebook, X, LinkedIn, Pinterest) -->
+        <div class="footer-social-icons">
+          <a href="https://www.facebook.com/oshacademyofficial" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/OSHAcademy" target="_blank" aria-label="X"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.pinterest.com/oshacademy/" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
         </div>
+      </div>
     </div>
-    <div class="copyright text-center"><div class="container">© 2000-2026 Geigle Safety Group, Inc. All rights reserved.</div></div>
+  </div>
+  <div class="copyright">
+    <div class="container">© 2000-2026 Geigle Safety Group, Inc. All rights reserved.</div>
+  </div>
 </footer>
 
+<!-- JavaScript for Certificate Validation -->
 <script>
-    const certificatesDB = {
-        "OSHA-AHMED-30H-210517": {
-            student: "Ahmed Ragab Salah Mohamed",
-            title: "OSHA Construction Safety and Health",
-            hours: "30 Hours",
-            issueDate: "17-05-2021"
-        },
-        "1050589-C345-210517-962021": {
-            student: "Ahmed Ragab Salah Mohamed",
-            title: "OSHA Construction Safety and Health",
-            hours: "30 Hours",
-            issueDate: "17-05-2021"
-        },
-        "OSHA-CONST-30H-AHMED": {
-            student: "Ahmed Ragab Salah Mohamed",
-            title: "OSHA Construction Safety and Health",
-            hours: "30 Hours",
-            issueDate: "17-05-2021"
-        }
-    };
-
-    function escapeHtml(str) {
-        if (!str) return '';
-        return str.replace(/[&<>]/g, function(m) {
-            if (m === '&') return '&amp;';
-            if (m === '<') return '&lt;';
-            if (m === '>') return '&gt;';
-            return m;
-        });
+  const certificatesDB = {
+    "OSHA-AHMED-30H-210517": {
+      student: "Ahmed Ragab Salah Mohamed",
+      title: "OSHA Construction Safety and Health",
+      hours: "30 Hours",
+      issueDate: "17-05-2021"
+    },
+    "1050589-C345-210517-962021": {
+      student: "Ahmed Ragab Salah Mohamed",
+      title: "OSHA Construction Safety and Health",
+      hours: "30 Hours",
+      issueDate: "17-05-2021"
+    },
+    "OSHA-CONST-30H-AHMED": {
+      student: "Ahmed Ragab Salah Mohamed",
+      title: "OSHA Construction Safety and Health",
+      hours: "30 Hours",
+      issueDate: "17-05-2021"
     }
+  };
 
-    function renderCertificateResult(certId, certData) {
-        const html = `
-            <div class="cert-card">
-                <div class="cert-header"><i class="fas fa-check-circle me-2"></i> Authentic Certificate: ${escapeHtml(certId)}</div>
-                <div class="p-4">
-                    <div class="row">
-                        <div class="col-md-4 text-center mb-4">
-                            <div class="verified-badge">
-                                <img src="../assets/verified.png" alt="VERIFIED" onerror="this.onerror=null; this.src='https://placehold.co/150x150/2e7d32/white?text=VERIFIED';">
-                                <div class="verified-text mt-2">VERIFIED TRAINING<br>GENUINE ★ AUTHENTIC ★ ORIGINAL</div>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <table class="detail-table">
-                                <tbody>
-                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong> </td>
-                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong> </tr>
-                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong> </td>
-                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong> </td>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="gradient-divider"></div>
-                    <p class="text-muted">This certificate has been verified as authentic and valid, attesting to the individual's successful completion of the OSHAcademy safety training. It provides assurance that the recipient possesses the safety and health knowledge encompassed in the area of study.</p>
-                    <div class="text-end mt-3"><i class="fas fa-stamp text-success"></i> <span class="small">IACET Accredited Provider</span></div>
-                </div>
-            </div>
-        `;
-        document.getElementById("resultPanel").innerHTML = html;
-    }
-
-    function renderErrorResult(message) {
-        const html = `
-            <div class="cert-card border-danger" style="border:1px solid #dc3545;">
-                <div class="cert-header" style="background:#b71c1c !important;"><i class="fas fa-exclamation-triangle me-2"></i> Certificate Validation Failed</div>
-                <div class="p-4">
-                    <div class="alert alert-danger"><i class="fas fa-times-circle me-2"></i> ${escapeHtml(message)}</div>
-                    <p>Please verify the Certificate ID and try again. If you believe this is an error, contact support.</p>
-                    <hr><small>Valid examples: <strong>OSHA-AHMED-30H-210517</strong> or <strong>1050589-C345-210517-962021</strong></small>
-                </div>
-            </div>
-        `;
-        document.getElementById("resultPanel").innerHTML = html;
-    }
-
-    document.getElementById("validateForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-        const certId = document.getElementById("certificateId").value.trim();
-        const certData = certificatesDB[certId];
-        if (certData) {
-            renderCertificateResult(certId, certData);
-        } else {
-            renderErrorResult("Certificate ID not found in our records. Please check the ID and try again.");
-        }
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, function(m) {
+      if (m === '&') return '&amp;';
+      if (m === '<') return '&lt;';
+      if (m === '>') return '&gt;';
+      return m;
     });
+  }
+
+  function renderCertificateResult(certId, certData) {
+    const resultHtml = `
+      <div class="cert-card">
+        <div class="cert-header"><i class="fas fa-check-circle me-2"></i> Authentic Certificate: ${escapeHtml(certId)}</div>
+        <div class="p-4">
+          <div class="row">
+            <div class="col-md-4 text-center mb-4">
+              <div class="verified-badge">
+                <img src="../assets/verified.png" alt="VERIFIED" onerror="this.onerror=null; this.src='https://placehold.co/150x150/2e7d32/white?text=VERIFIED';">
+                <div class="verified-text mt-2">VERIFIED TRAINING<br>GENUINE ★ AUTHENTIC ★ ORIGINAL</div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <table class="detail-table">
+                <tbody>
+                  <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong></td></tr>
+                  <tr><th>Title</th><td>${escapeHtml(certData.title)}</td></tr>
+                  <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</td></tr>
+                  <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="gradient-divider"></div>
+          <p class="text-muted">This certificate has been verified as authentic and valid, attesting to the individual's successful completion of the OSHAcademy safety training. It provides assurance that the recipient possesses the safety and health knowledge encompassed in the area of study.</p>
+          <div class="text-end mt-3"><i class="fas fa-stamp text-success"></i> <span class="small">IACET Accredited Provider</span></div>
+        </div>
+      </div>
+    `;
+    document.getElementById("resultPanel").innerHTML = resultHtml;
+  }
+
+  function renderErrorResult(message) {
+    const errorHtml = `
+      <div class="cert-card border-danger" style="border:1px solid #dc3545;">
+        <div class="cert-header" style="background:#b71c1c !important;"><i class="fas fa-exclamation-triangle me-2"></i> Certificate Validation Failed</div>
+        <div class="p-4">
+          <div class="alert alert-danger"><i class="fas fa-times-circle me-2"></i> ${escapeHtml(message)}</div>
+          <p>Please verify the Certificate ID and try again. If you believe this is an error, contact support.</p>
+          <hr><small>Valid examples: <strong>OSHA-AHMED-30H-210517</strong> or <strong>1050589-C345-210517-962021</strong></small>
+        </div>
+      </div>
+    `;
+    document.getElementById("resultPanel").innerHTML = errorHtml;
+  }
+
+  document.getElementById("validateForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const certId = document.getElementById("certificateId").value.trim();
+    const certData = certificatesDB[certId];
+    if (certData) {
+      renderCertificateResult(certId, certData);
+    } else {
+      renderErrorResult("Certificate ID not found in our records. Please check the ID and try again.");
+    }
+  });
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
