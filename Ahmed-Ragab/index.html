@@ -18,20 +18,35 @@
             margin: 0;
             padding: 0;
         }
-        /* ================= HEADER ================= */
+        /* إزالة كل الهوامش العلوية */
         .header-container {
             background: #fff;
             box-shadow: 0 2px 8px rgba(0,0,0,.05);
-            padding: 0;   /* إزالة الهوامش تماماً */
+            padding: 0;
+            margin: 0;
+        }
+        .header-container .container {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .header-container .row {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .logo {
+            line-height: 0;  /* يزيل أي مسافة إضافية حول الصورة */
+            margin: 0;
+            padding: 0;
         }
         .logo img {
-            max-height: 160px;   /* تكبير اللوجو */
+            max-height: 140px;
             width: auto;
             height: auto;
             display: block;
-            object-fit: contain;
+            margin: 0;
+            padding: 0;
         }
-        /* Login/Register على سطح المكتب (تظهر بشكل طبيعي) */
+        /* Login/Register على سطح المكتب */
         .login-register {
             display: flex;
             align-items: center;
@@ -48,7 +63,7 @@
             margin-right: 5px;
             color: #000;
         }
-        /* قائمة جانبية للموبايل تحتوي على Login/Register */
+        /* قائمة جانبية للموبايل */
         .mobile-nav-links {
             list-style: none;
             padding: 0;
@@ -72,24 +87,15 @@
         /* ================= MOBILE ================= */
         @media (max-width: 768px) {
             .logo img {
-                max-height: 110px;   /* تكبير على الموبايل */
+                max-height: 100px;
             }
-            /* إخفاء Login/Register من الشريط العلوي في الموبايل */
             .login-register {
                 display: none;
             }
-            /* تخصيص زر الهامبرغر */
             .navbar-toggler {
                 border: none;
                 background: transparent;
                 font-size: 1.5rem;
-                padding: 0;
-            }
-            .navbar-toggler:focus {
-                box-shadow: none;
-            }
-            /* تحسين عرض القائمة المنسدلة */
-            .offcanvas-body {
                 padding: 0;
             }
         }
@@ -227,18 +233,16 @@
                     <div class="logo">
                         <a href="https://www.oshacademy.com/index.html">
                             <img src="../assets/osh.png" alt="OSHAcademy Logo"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/500x160/2e7d32/white?text=OSHAcademy';">
+                                 onerror="this.onerror=null; this.src='https://placehold.co/400x140/2e7d32/white?text=OSHAcademy';">
                         </a>
                     </div>
                 </div>
                 <div class="col-md-8 col-4">
                     <div class="d-flex justify-content-end align-items-center">
-                        <!-- Login/Register على سطح المكتب -->
                         <div class="login-register">
                             <a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
                             <a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-user-plus"></i> Register</a>
                         </div>
-                        <!-- زر الهامبرغر للموبايل -->
                         <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
                             <i class="fas fa-bars"></i>
                         </button>
@@ -248,7 +252,6 @@
         </div>
     </div>
 
-    <!-- القائمة الجانبية (Offcanvas) للموبايل - تحتوي على Login و Register فقط -->
     <div class="offcanvas offcanvas-end d-md-none" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="mobileMenuLabel">Menu</h5>
@@ -405,7 +408,7 @@
                                 <tbody>
                                     <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong> </td> </tr>
                                     <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong> </td> </tr>
-                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong> </td> </tr>
+                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong> </td> <tr>
                                     <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong> </td> </tr>
                                 </tbody>
                             </table>
