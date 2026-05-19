@@ -22,30 +22,16 @@
         .header-container {
             background: #fff;
             box-shadow: 0 2px 8px rgba(0,0,0,.05);
-            padding: 14px 0;
+            padding: 8px 0;   /* تقليل الهوامش العلوية والسفلية */
         }
         .logo img {
-            max-height: 120px;
+            max-height: 140px;  /* تكبير اللوجو */
             width: auto;
             height: auto;
             display: block;
             object-fit: contain;
         }
-        .social-icons {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-        .social-icons a {
-            color: #000;
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: .2s;
-            line-height: 1;
-        }
-        .social-icons a:hover {
-            color: #e66a2c;
-        }
+        /* لم تعد هناك أيقونات سوشيال ميديا */
         .login-register {
             display: flex;
             align-items: center;
@@ -62,10 +48,10 @@
             margin-right: 5px;
             color: #000;
         }
-        /* روابط القائمة الرئيسية باللون الأزرق كما في الصورة */
+        /* روابط القائمة الرئيسية باللون الأزرق */
         .main-nav .nav-link {
             font-weight: 600;
-            color: #0a58ca;   /* أزرق غامق */
+            color: #0a58ca;
             padding: 8px 12px;
             font-size: .94rem;
         }
@@ -80,7 +66,7 @@
         /* ================= MOBILE ================= */
         @media (max-width: 768px) {
             .logo img {
-                max-height: 85px;
+                max-height: 95px;  /* تكبير على الموبايل */
             }
             .login-register {
                 gap: 10px;
@@ -91,9 +77,6 @@
             .main-nav .nav-link {
                 font-size: .85rem;
                 padding: 6px 8px;
-            }
-            .social-icons {
-                display: none;
             }
         }
 
@@ -230,19 +213,13 @@
                     <div class="logo">
                         <a href="https://www.oshacademy.com/index.html">
                             <img src="../assets/osh.png" alt="OSHAcademy Logo"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/400x120/2e7d32/white?text=OSHAcademy';">
+                                 onerror="this.onerror=null; this.src='https://placehold.co/400x140/2e7d32/white?text=OSHAcademy';">
                         </a>
                     </div>
                 </div>
                 <div class="col-md-8 col-5">
                     <div class="d-flex justify-content-end align-items-center flex-wrap">
-                        <!-- أيقونات السوشيال ميديا في أقصى اليمين -->
-                        <div class="social-icons d-none d-md-flex me-3">
-                            <a href="https://www.facebook.com/oshacademyofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-twitter"></i></a>
-                            <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        <!-- Login / Register -->
+                        <!-- Login / Register (أيقونات التواصل الاجتماعي تم إزالتها نهائياً) -->
                         <div class="login-register">
                             <a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
                             <a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-user-plus"></i> Register</a>
@@ -251,7 +228,7 @@
                             <i class="fas fa-bars"></i>
                         </button>
                     </div>
-                    <!-- القائمة الرئيسية (أزرق) -->
+                    <!-- القائمة الرئيسية -->
                     <div class="main-nav collapse d-md-block" id="mobileNav">
                         <ul class="nav justify-content-end mt-2">
                             <li class="nav-item"><a class="nav-link" href="https://www.oshacademy.com/index.html">Home</a></li>
@@ -313,10 +290,10 @@
                             <div class="col-md-8">
                                 <table class="detail-table">
                                     <tbody>
-                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong></td>
-                                        <tr><th>Title</th><td>OSHA Construction Safety and Health</strong></td>
-                                        <tr><th>Hours</th><td>30 Hours</strong></td>
-                                        <tr><th>Issue Date</th><td>17-05-2021</strong></td>
+                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
+                                        <tr><th>Title</th><td>OSHA Construction Safety and Health</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
+                                        <tr><th>Hours</th><td>30 Hours</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
+                                        <tr><th>Issue Date</th><td>17-05-2021</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -407,10 +384,10 @@
                         <div class="col-md-8">
                             <table class="detail-table">
                                 <tbody>
-                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong></td>
-                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong></strong> </td>
-                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong></strong> </td>
-                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong> </td>
+                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
+                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
+                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
+                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </strong> </td> </tr>
                                 </tbody>
                             </table>
                         </div>
