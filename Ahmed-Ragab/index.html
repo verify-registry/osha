@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Ahmed Ragab Salah Mohamed | Certificate Validation</title>
+    <title>OSHA Academy Certificate Validation</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,21 +19,21 @@
             color: #2c3e50;
             line-height: 1.5;
         }
-        /* ========== HEADER - بسيط جداً ========== */
+        /* ========== HEADER - بدون أيقونات تواصل ========== */
         .header-container {
             background: #fff;
             box-shadow: 0 2px 8px rgba(0,0,0,.05);
-            padding: 0;  /* لا هوامض علوية أو سفلية */
+            padding: 0;  /* لا هوامض علوية */
         }
         .logo img {
-            max-height: 180px;   /* تكبير كبير كما طلبت */
+            max-height: 180px;   /* تكبير كبير */
             width: auto;
             display: block;
         }
-        /* أزرار Login و Register فقط */
+        /* أزرار Login و Register بالشكل المطلوب: → Login   + Register */
         .auth-buttons {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             align-items: center;
         }
         .auth-buttons a {
@@ -43,27 +43,11 @@
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
         }
         .auth-buttons a i {
             font-size: 14px;
             color: #000;
-        }
-        /* أيقونات وسائل التواصل (أقصى اليمين) */
-        .social-icons-top {
-            display: flex;
-            gap: 18px;
-            align-items: center;
-            margin-left: 20px;
-        }
-        .social-icons-top a {
-            color: #000;
-            font-size: 1.1rem;
-            transition: color 0.2s ease;
-            text-decoration: none;
-        }
-        .social-icons-top a:hover {
-            color: #e66a2c;
         }
         /* زر الهامبرغر للموبايل */
         .mobile-menu-btn {
@@ -74,7 +58,7 @@
             margin-left: 15px;
             display: none;
         }
-        /* Offcanvas للموبايل (قائمة منسدلة من الأعلى) */
+        /* Offcanvas للموبايل */
         .offcanvas-top {
             height: auto;
             max-height: 250px;
@@ -100,9 +84,9 @@
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .logo img {
-                max-height: 110px;   /* مناسب للموبايل */
+                max-height: 110px;
             }
-            .auth-buttons, .social-icons-top {
+            .auth-buttons {
                 display: none !important;
             }
             .mobile-menu-btn {
@@ -114,7 +98,7 @@
                 display: none !important;
             }
         }
-        /* ========== باقي التنسيقات (نفس المطلوب سابقاً) ========== */
+        /* ========== باقي التنسيقات ========== */
         .page-header {
             background: linear-gradient(95deg, #1e3c2c 0%, #2a5a3a 100%);
             padding: 30px 0;
@@ -212,6 +196,7 @@
             margin: 25px 0;
             border-radius: 2px;
         }
+        /* ========== FOOTER ========== */
         footer {
             background-color: #1a2a36;
             color: #cddce9;
@@ -224,13 +209,15 @@
         }
         .footer-social-icons {
             display: flex;
-            gap: 20px;
-            margin-top: 15px;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
         }
         .footer-social-icons a {
             color: #cddce9;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             transition: color 0.2s;
+            text-decoration: none;
         }
         .footer-social-icons a:hover {
             color: white;
@@ -266,17 +253,10 @@
                 </div>
                 <div class="col-md-8 col-5">
                     <div class="d-flex justify-content-end align-items-center">
-                        <!-- فقط Login و Register -->
+                        <!-- أزرار Login و Register بالشكل المطلوب -->
                         <div class="auth-buttons d-none d-md-flex">
-                            <a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
-                            <a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-user-plus"></i> Register</a>
-                        </div>
-                        <!-- أيقونات وسائل التواصل (أقصى اليمين) مع شعار X الصحيح -->
-                        <div class="social-icons-top d-none d-md-flex">
-                            <a href="https://www.facebook.com/oshacademyofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-x-twitter"></i></a>   <!-- شعار X الجديد -->
-                            <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://www.pinterest.com/oshacademy/" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-arrow-right"></i> Login</a>
+                            <a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-plus"></i> Register</a>
                         </div>
                         <!-- زر القائمة للموبايل -->
                         <button class="mobile-menu-btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
@@ -288,7 +268,7 @@
         </div>
     </div>
 
-    <!-- قائمة الموبايل المنزلقة من الأعلى (تحتوي على Login و Register فقط) -->
+    <!-- قائمة الموبايل -->
     <div class="offcanvas offcanvas-top mobile-only" tabindex="-1" id="mobileMenu">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title">Menu</h5>
@@ -296,8 +276,8 @@
         </div>
         <div class="offcanvas-body">
             <ul class="mobile-nav-links">
-                <li><a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-                <li><a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-user-plus"></i> Register</a></li>
+                <li><a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-arrow-right"></i> Login</a></li>
+                <li><a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-plus"></i> Register</a></li>
             </ul>
         </div>
     </div>
@@ -347,7 +327,7 @@
                             <div class="col-md-8">
                                 <table class="detail-table">
                                     <tbody>
-                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong> </strong> </td>
+                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong>  </strong> </td>
                                         <tr><th>Title</th><td>OSHA Construction Safety and Health</strong> </td>
                                         <tr><th>Hours</th><td>30 Hours</strong> </td>
                                         <tr><th>Issue Date</th><td>17-05-2021</strong> </td>
@@ -388,6 +368,7 @@
                     <li><a href="https://www.oshacademy.com/pages/students/transcript-request-info.html">Official Transcript Request</a></li>
                     <li><a href="https://www.oshacademy.com/pages/about-us/contact-us.php">Contact Us</a></li>
                 </ul>
+                <!-- أيقونات التواصل الأربعة في الأسفل فقط -->
                 <div class="footer-social-icons">
                     <a href="https://www.facebook.com/oshacademyofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-x-twitter"></i></a>
@@ -401,7 +382,6 @@
 </footer>
 
 <script>
-    // قاعدة بيانات الشهادات
     const certificatesDB = {
         "OSHA-AHMED-30H-210517": {
             student: "Ahmed Ragab Salah Mohamed",
