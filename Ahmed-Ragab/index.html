@@ -19,18 +19,33 @@
             color: #2c3e50;
             line-height: 1.5;
         }
-        /* ========== HEADER - بدون أيقونات تواصل ========== */
+        /* ========== HEADER ========== */
         .header-container {
             background: #fff;
             box-shadow: 0 2px 8px rgba(0,0,0,.05);
-            padding: 0;  /* لا هوامض علوية */
+            padding: 0;          /* زوال الهامش الأبيض العلوي */
+            margin: 0;
+        }
+        .container-fluid, .container {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .logo {
+            line-height: 0;
         }
         .logo img {
-            max-height: 180px;   /* تكبير كبير */
+            max-height: 180px;   /* اللوجو كبير */
             width: auto;
             display: block;
         }
-        /* أزرار Login و Register بالشكل المطلوب: → Login   + Register */
+        /* الأزرار والأيقونات في أعلى اليمين */
+        .top-right-group {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+        /* أزرار Login / Register */
         .auth-buttons {
             display: flex;
             gap: 20px;
@@ -49,13 +64,27 @@
             font-size: 14px;
             color: #000;
         }
+        /* أيقونات السوشيال ميديا (أقصى اليمين) */
+        .social-icons-top {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+        .social-icons-top a {
+            color: #000;
+            font-size: 1.2rem;
+            transition: color 0.2s ease;
+            text-decoration: none;
+        }
+        .social-icons-top a:hover {
+            color: #e66a2c;
+        }
         /* زر الهامبرغر للموبايل */
         .mobile-menu-btn {
             background: none;
             border: none;
             font-size: 1.5rem;
             padding: 0;
-            margin-left: 15px;
             display: none;
         }
         /* Offcanvas للموبايل */
@@ -86,7 +115,8 @@
             .logo img {
                 max-height: 110px;
             }
-            .auth-buttons {
+            .top-right-group .auth-buttons,
+            .top-right-group .social-icons-top {
                 display: none !important;
             }
             .mobile-menu-btn {
@@ -243,7 +273,7 @@
     <div class="header-container">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-4 col-7">
+                <div class="col-md-4 col-8">
                     <div class="logo">
                         <a href="https://www.oshacademy.com/index.html">
                             <img src="../assets/osh.png" alt="OSHAcademy Logo"
@@ -251,14 +281,21 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-8 col-5">
-                    <div class="d-flex justify-content-end align-items-center">
-                        <!-- أزرار Login و Register بالشكل المطلوب -->
+                <div class="col-md-8 col-4">
+                    <div class="top-right-group">
+                        <!-- 1) أزرار Login و Register (سهم وعلامة +) -->
                         <div class="auth-buttons d-none d-md-flex">
                             <a href="https://www.oshacademy.com/student/login.php"><i class="fas fa-arrow-right"></i> Login</a>
                             <a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-plus"></i> Register</a>
                         </div>
-                        <!-- زر القائمة للموبايل -->
+                        <!-- 2) أيقونات التواصل (أقصى اليمين) مع أيقونة X الصحيحة -->
+                        <div class="social-icons-top d-none d-md-flex">
+                            <a href="https://www.facebook.com/oshacademyofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-x-twitter"></i></a>   <!-- شعار X الجديد -->
+                            <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.pinterest.com/oshacademy/" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                        </div>
+                        <!-- زر الهامبرغر للموبايل -->
                         <button class="mobile-menu-btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
                             <i class="fas fa-bars"></i>
                         </button>
@@ -268,7 +305,7 @@
         </div>
     </div>
 
-    <!-- قائمة الموبايل -->
+    <!-- Offcanvas للموبايل (يظهر من الأعلى) -->
     <div class="offcanvas offcanvas-top mobile-only" tabindex="-1" id="mobileMenu">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title">Menu</h5>
@@ -368,7 +405,7 @@
                     <li><a href="https://www.oshacademy.com/pages/students/transcript-request-info.html">Official Transcript Request</a></li>
                     <li><a href="https://www.oshacademy.com/pages/about-us/contact-us.php">Contact Us</a></li>
                 </ul>
-                <!-- أيقونات التواصل الأربعة في الأسفل فقط -->
+                <!-- أيقونات التواصل في الفوتر (نفس اللي فوق) -->
                 <div class="footer-social-icons">
                     <a href="https://www.facebook.com/oshacademyofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-x-twitter"></i></a>
