@@ -25,7 +25,7 @@
             padding: 14px 0;
         }
         .logo img {
-            max-height: 95px;
+            max-height: 120px;
             width: auto;
             height: auto;
             display: block;
@@ -62,9 +62,10 @@
             margin-right: 5px;
             color: #000;
         }
+        /* روابط القائمة الرئيسية باللون الأزرق كما في الصورة */
         .main-nav .nav-link {
             font-weight: 600;
-            color: #2c3e50;
+            color: #0a58ca;   /* أزرق غامق */
             padding: 8px 12px;
             font-size: .94rem;
         }
@@ -79,7 +80,7 @@
         /* ================= MOBILE ================= */
         @media (max-width: 768px) {
             .logo img {
-                max-height: 68px;
+                max-height: 85px;
             }
             .login-register {
                 gap: 10px;
@@ -225,18 +226,17 @@
     <div class="header-container">
         <div class="container">
             <div class="row align-items-center">
-                <!-- تم تغيير العمود إلى col-md-4 col-7 -->
                 <div class="col-md-4 col-7">
                     <div class="logo">
                         <a href="https://www.oshacademy.com/index.html">
                             <img src="../assets/osh.png" alt="OSHAcademy Logo"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/400x90/2e7d32/white?text=OSHAcademy';">
+                                 onerror="this.onerror=null; this.src='https://placehold.co/400x120/2e7d32/white?text=OSHAcademy';">
                         </a>
                     </div>
                 </div>
                 <div class="col-md-8 col-5">
                     <div class="d-flex justify-content-end align-items-center flex-wrap">
-                        <!-- أيقونات سوشيال ميديا (تظهر فقط على اللاب توب) -->
+                        <!-- أيقونات السوشيال ميديا في أقصى اليمين -->
                         <div class="social-icons d-none d-md-flex me-3">
                             <a href="https://www.facebook.com/oshacademyofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
                             <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -251,7 +251,7 @@
                             <i class="fas fa-bars"></i>
                         </button>
                     </div>
-                    <!-- القائمة الرئيسية -->
+                    <!-- القائمة الرئيسية (أزرق) -->
                     <div class="main-nav collapse d-md-block" id="mobileNav">
                         <ul class="nav justify-content-end mt-2">
                             <li class="nav-item"><a class="nav-link" href="https://www.oshacademy.com/index.html">Home</a></li>
@@ -300,7 +300,6 @@
 
         <div class="col-lg-7">
             <div id="resultPanel">
-                <!-- Default certificate card -->
                 <div class="cert-card">
                     <div class="cert-header"><i class="fas fa-shield-alt me-2"></i> Authentic Certificate: OSHA-AHMED-30H-210517</div>
                     <div class="p-4">
@@ -314,7 +313,7 @@
                             <div class="col-md-8">
                                 <table class="detail-table">
                                     <tbody>
-                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong></td></tr>
+                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong></td>
                                         <tr><th>Title</th><td>OSHA Construction Safety and Health</strong></td>
                                         <tr><th>Hours</th><td>30 Hours</strong></td>
                                         <tr><th>Issue Date</th><td>17-05-2021</strong></td>
@@ -362,7 +361,6 @@
 </footer>
 
 <script>
-    // Certificate database
     const certificatesDB = {
         "OSHA-AHMED-30H-210517": {
             student: "Ahmed Ragab Salah Mohamed",
@@ -410,9 +408,9 @@
                             <table class="detail-table">
                                 <tbody>
                                     <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong></td>
-                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong></td>
-                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong></td>
-                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong></td>
+                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong></strong> </td>
+                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong></strong> </td>
+                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong> </td>
                                 </tbody>
                             </table>
                         </div>
