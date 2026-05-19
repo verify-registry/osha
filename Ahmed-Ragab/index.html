@@ -8,6 +8,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* منع الحركة بالعرض والمساحة البيضاء على اليمين */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         * {
             box-sizing: border-box;
         }
@@ -23,18 +29,18 @@
         .header-container {
             background: #fff;
             border-top: 5px solid #ededed;
-            padding: 15px 0;
+            padding: 5px 0; /* تقليل الهامش الأبيض جداً */
             box-shadow: 0 1px 0 0 rgba(0,0,0,.05);
         }
         .logo img {
-            max-height: 60px;
+            max-height: 90px; /* تكبير اللوجو */
             width: auto;
         }
         .top-right-group {
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            gap: 25px; /* مسافة بين زراير الدخول وأيقونات السوشيال */
+            gap: 25px;
         }
         
         /* تصميم أيقونات الدخول والتسجيل زي الصورة */
@@ -60,13 +66,13 @@
             color: #000;
         }
 
-        /* تصميم أيقونات السوشيال ميديا الدائرية زي الصورة */
+        /* تصميم أيقونات السوشيال ميديا الدائرية للهيدر */
         .social-icons-top {
             display: flex;
-            gap: 8px; /* مسافة قريبة بين الدوائر */
+            gap: 8px;
         }
         .social-icons-top a {
-            color: #333; /* لون الأيقونة الغامق */
+            color: #333;
             background-color: #fff;
             width: 36px;
             height: 36px;
@@ -75,13 +81,64 @@
             align-items: center;
             justify-content: center;
             font-size: 1.1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* الضل الخفيف */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
             text-decoration: none;
             transition: all 0.2s ease-in-out;
         }
         .social-icons-top a:hover {
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             transform: translateY(-2px);
+        }
+
+        /* زرار الموبايل والقائمة الجانبية */
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #333;
+            padding: 0;
+            display: none;
+        }
+        .offcanvas-top {
+            height: auto;
+            max-height: 250px;
+            border-radius: 0 0 12px 12px;
+        }
+        .mobile-nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .mobile-nav-links li {
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .mobile-nav-links li a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* الميديا كويري للموبايل */
+        @media (max-width: 768px) {
+            .logo img {
+                max-height: 70px; /* حجم مناسب للموبايل بس كبير برضو */
+            }
+            .top-right-group .auth-buttons,
+            .top-right-group .social-icons-top {
+                display: none !important;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        @media (min-width: 769px) {
+            .mobile-only {
+                display: none !important;
+            }
         }
 
         /* ========== PAGE HEADER ========== */
@@ -153,7 +210,7 @@
             border: 1px solid #d6e9c6;
             border-radius: 4px;
             box-shadow: 0 1px 1px rgba(0,0,0,.05);
-            display: none; /* مخفي في البداية لحد ما تبحث */
+            display: none;
         }
         .panel-heading {
             background-color: #dff0d8;
@@ -188,7 +245,7 @@
             background-color: #1a2a36;
             color: #cddce9;
             margin-top: 60px;
-            padding: 45px 0 20px;
+            padding: 45px 0 0; /* مسافة للفوتر */
             font-size: 13px;
         }
         footer h4 {
@@ -197,22 +254,31 @@
             font-weight: 600;
             margin-bottom: 15px;
         }
+        /* تصميم أيقونات السوشيال ميديا السادة في الفوتر حسب صورتك */
+        .footer-social-icons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
         .footer-social-icons a {
-            color: #cddce9;
-            font-size: 1.5rem;
-            margin-right: 15px;
+            color: #e2e2e2;
+            font-size: 1.8rem; /* تكبير الأيقونات السادة */
             text-decoration: none;
             display: inline-flex;
             align-items: center;
+            transition: color 0.2s;
         }
         .footer-social-icons a:hover {
             color: #fff;
         }
         .copyright {
             background-color: #0f1a22;
-            padding: 15px 0;
-            margin-top: 30px;
+            padding: 20px 0;
+            margin-top: 20px;
             text-align: left;
+            color: #cddce9;
+            font-size: 12px;
+            line-height: 1.8;
         }
     </style>
 </head>
@@ -222,30 +288,47 @@
     <div class="header-container">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-4 col-6">
+                <div class="col-8 col-md-4">
                     <div class="logo">
                         <a href="#">
                             <img src="../assets/osh.png" alt="OSHAcademy" onerror="this.onerror=null; this.src='https://placehold.co/327x60/ffffff/000000?text=OSHAcademy';">
                         </a>
                     </div>
                 </div>
-                <div class="col-md-8 col-6">
+                <div class="col-4 col-md-8">
                     <div class="top-right-group">
                         <div class="auth-buttons d-none d-md-flex">
                             <a href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
                             <a href="#"><i class="fa-solid fa-user-plus"></i> Register</a>
                         </div>
                         <div class="social-icons-top d-none d-md-flex">
-                            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                             <a href="#" title="X (Twitter)">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width:0.85em;height:0.85em;fill:currentColor"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>
                             </a>
-                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" title="Pinterest"><i class="fab fa-pinterest"></i></a>
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                         </div>
+                        
+                        <button class="mobile-menu-btn d-md-none ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+                            <i class="fas fa-bars"></i>
+                        </button>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-top mobile-only" tabindex="-1" id="mobileMenu">
+        <div class="offcanvas-header pb-0">
+            <h5 class="offcanvas-title">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="mobile-nav-links">
+                <li><a href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a></li>
+                <li><a href="#"><i class="fa-solid fa-user-plus"></i> Register</a></li>
+            </ul>
         </div>
     </div>
 </header>
@@ -380,7 +463,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // الداتا الوهمية للبحث
     const certificatesDB = {
         "1050589-C345-231215-964826": {
             student: "Ismail Elsayed Ismail Abdo",
