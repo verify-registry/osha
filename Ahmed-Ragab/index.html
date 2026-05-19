@@ -6,6 +6,7 @@
     <title>OSHA Academy Certificate Validation</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome 6.4.0 to support the new X (Twitter) icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -23,11 +24,11 @@
         .header-container {
             background: #fff;
             box-shadow: 0 2px 8px rgba(0,0,0,.05);
-            padding: 0;
+            padding: 10px 0; /* تقليل الهامش الأبيض */
             margin: 0;
         }
         .logo img {
-            max-height: 180px;
+            max-height: 100px; /* تقليل ارتفاع اللوجو عشان المساحة البيضاء تقل */
             width: auto;
             display: block;
         }
@@ -61,8 +62,8 @@
             align-items: center;
         }
         .social-icons-top a {
-            color: #000;
-            font-size: 1.2rem;
+            color: #2c3e50;
+            font-size: 1.3rem; /* تكبير الأيقونات قليلاً لتكون أوضح */
             transition: color 0.2s ease;
             text-decoration: none;
         }
@@ -100,7 +101,7 @@
         }
         @media (max-width: 768px) {
             .logo img {
-                max-height: 110px;
+                max-height: 80px;
             }
             .top-right-group .auth-buttons,
             .top-right-group .social-icons-top {
@@ -182,12 +183,16 @@
             border-radius: 16px;
             text-align: center;
             padding: 20px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
         }
         .verified-badge img {
-            max-width: 220px;   /* تكبير الصورة */
+            max-width: 280px; /* تكبير صورة VERIFIED عشان تبقى واضحة جداً */
             width: 100%;
+            height: auto;
         }
-        /* تم إخفاء النصوص نهائياً */
         .verified-text {
             display: none;
         }
@@ -222,7 +227,7 @@
         }
         .footer-social-icons {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 25px;
             margin-top: 20px;
         }
@@ -271,10 +276,10 @@
                             <a href="https://www.oshacademy.com/student/register/step-1.php"><i class="fas fa-plus"></i> Register</a>
                         </div>
                         <div class="social-icons-top d-none d-md-flex">
-                            <a href="https://www.facebook.com/oshacademyofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-x-twitter"></i></a>
-                            <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://www.pinterest.com/oshacademy/" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="https://www.facebook.com/oshacademyofficial" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/OSHAcademy" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                            <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.pinterest.com/oshacademy/" target="_blank" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                         </div>
                         <button class="mobile-menu-btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
                             <i class="fas fa-bars"></i>
@@ -302,7 +307,7 @@
 <section class="page-header">
     <div class="container">
         <div class="breadcrumb-custom">
-            <a href="https://www.oshacademy.com/index.html">Home</a> / <span style="color:white">Validate Student Certificate</span>
+            <a href="https://www.oshacademy.com/index.html">Home</a> / <span class="text-white">Validate Student Certificate</span>
         </div>
         <h1><i class="fas fa-certificate me-2"></i> Validate Student Certificate</h1>
     </div>
@@ -337,16 +342,16 @@
                             <div class="col-md-4 text-center mb-4">
                                 <div class="verified-badge">
                                     <img src="../assets/verified.png" alt="Verified Badge" onerror="this.onerror=null; this.src='https://placehold.co/300x300/2e7d32/white?text=VERIFIED';">
-                                    <!-- تم إخفاء النصوص بالكامل -->
                                 </div>
                             </div>
                             <div class="col-md-8">
                                 <table class="detail-table">
                                     <tbody>
-                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong>  </strong> </td>
-                                        <tr><th>Title</th><td>OSHA Construction Safety and Health</strong> </td>
-                                        <tr><th>Hours</th><td>30 Hours</strong> </td>
-                                        <tr><th>Issue Date</th><td>17-05-2021</strong> </td>
+                                        <!-- تم إصلاح أخطاء الـ HTML هنا -->
+                                        <tr><th>Student Name</th><td><strong>Ahmed Ragab Salah Mohamed</strong></td></tr>
+                                        <tr><th>Title</th><td>OSHA Construction Safety and Health</td></tr>
+                                        <tr><th>Hours</th><td>30 Hours</td></tr>
+                                        <tr><th>Issue Date</th><td>17-05-2021</td></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -385,10 +390,10 @@
                     <li><a href="https://www.oshacademy.com/pages/about-us/contact-us.php">Contact Us</a></li>
                 </ul>
                 <div class="footer-social-icons">
-                    <a href="https://www.facebook.com/oshacademyofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://x.com/OSHAcademy" target="_blank"><i class="fab fa-x-twitter"></i></a>
-                    <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.pinterest.com/oshacademy/" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="https://www.facebook.com/oshacademyofficial" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/OSHAcademy" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://www.linkedin.com/company/oshacademy-safety-and-health-training" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.pinterest.com/oshacademy/" target="_blank" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
                 </div>
             </div>
         </div>
@@ -429,6 +434,7 @@
     }
 
     function renderCertificateResult(certId, certData) {
+        // تم إصلاح أخطاء الـ HTML هنا أيضاً
         const html = `
             <div class="cert-card">
                 <div class="cert-header"><i class="fas fa-check-circle me-2"></i> Authentic Certificate: ${escapeHtml(certId)}</div>
@@ -442,10 +448,10 @@
                         <div class="col-md-8">
                             <table class="detail-table">
                                 <tbody>
-                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong> </td>
-                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</strong> </td>
-                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</strong> </td>
-                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</strong> </td>
+                                    <tr><th>Student Name</th><td><strong>${escapeHtml(certData.student)}</strong></td></tr>
+                                    <tr><th>Title</th><td>${escapeHtml(certData.title)}</td></tr>
+                                    <tr><th>Hours</th><td>${escapeHtml(certData.hours)}</td></tr>
+                                    <tr><th>Issue Date</th><td>${escapeHtml(certData.issueDate)}</td></tr>
                                 </tbody>
                             </table>
                         </div>
