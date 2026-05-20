@@ -43,7 +43,7 @@
             gap: 25px;
         }
         
-        /* تصميم أيقونات الدخول والتسجيل للشاشات الكبيرة */
+        /* تصميم أيقونات الدخول والتسجيل */
         .auth-buttons {
             display: flex;
             gap: 20px;
@@ -90,19 +90,19 @@
             transform: translateY(-2px);
         }
 
-        /* ========== تصميم زرار الموبايل (الهامبرجر) مطابق للموقع الرسمي ========== */
+        /* ========== تصميم زرار الموبايل (الهامبرجر) ========== */
         .mobile-menu-btn {
-            background-color: #337ab7; /* اللون الأزرق الرسمي */
-            color: #fff; /* لون الأيقونة أبيض */
+            background-color: #337ab7; 
+            color: #fff; 
             border: 1px solid #2e6da4;
             border-radius: 4px;
             font-size: 1.4rem;
-            padding: 6px 12px; /* حشو عشان يدي شكل المربع المستطيل */
+            padding: 6px 12px; 
             display: none;
             transition: background-color 0.2s;
         }
         .mobile-menu-btn:hover, .mobile-menu-btn:focus {
-            background-color: #286090; /* لون أغمق شوية عند الضغط */
+            background-color: #286090; 
             outline: none;
         }
 
@@ -132,14 +132,151 @@
         /* ========== الميديا كويري للموبايل ========== */
         @media (max-width: 768px) {
             .header-container {
-                padding: 12px 0; /* لمينا الهامش الأبيض العلوي والسفلي في الموبايل */
+                padding: 12px 0; 
             }
             .logo img {
-                max-height: 45px; /* صغرنا اللوجو جداً عشان يطابق الصورة الأولى */
+                max-height: 45px; 
             }
             .top-right-group .auth-buttons,
             .top-right-group .social-icons-top {
                 display: none !important;
             }
             .mobile-menu-btn {
-                display: block; /*
+                display: block; 
+            }
+        }
+        @media (min-width: 769px) {
+            .mobile-only {
+                display: none !important;
+            }
+        }
+
+        /* ========== PAGE HEADER ========== */
+        .page-header {
+            background-color: #171717;
+            border-top: 5px solid #2e353e;
+            border-bottom: 5px solid #2e353e;
+            padding: 25px 0;
+            margin-bottom: 40px;
+        }
+        .page-header h1 {
+            font-size: 1.8em;
+            font-weight: 300;
+            color: #fff;
+            margin: 0;
+            border-bottom: none;
+        }
+        .breadcrumb-custom {
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+        .breadcrumb-custom a {
+            color: #0088cc;
+            text-decoration: none;
+        }
+        .breadcrumb-custom span {
+            color: #999;
+        }
+
+        /* ========== AUTHENTIC BLOCK ========== */
+        .authentic-block {
+            margin-bottom: 30px;
+        }
+        .authentic-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 0;
+        }
+        .authentic-text {
+            font-size: 16px;
+            color: #777;
+        }
+
+        /* ========== FORM STYLES ========== */
+        .form-label {
+            font-weight: 600;
+            color: #333;
+        }
+        .form-control-lg {
+            font-size: 14px;
+            padding: 12px 15px;
+            border-radius: 4px;
+        }
+        .btn-success {
+            background-color: #47a447;
+            border-color: #398439;
+            font-weight: 600;
+            padding: 10px 25px;
+            border-radius: 4px;
+        }
+        .btn-success:hover {
+            background-color: #398439;
+            border-color: #2d672d;
+        }
+
+        /* ========== RESULT PANEL ========== */
+        .panel-success {
+            border: 1px solid #d6e9c6;
+            border-radius: 4px;
+            box-shadow: 0 1px 1px rgba(0,0,0,.05);
+            display: none; /* المربع مخفي في البداية زي ما طلبت */
+        }
+        .panel-heading {
+            background-color: #dff0d8;
+            color: #3c763d;
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 15px;
+            border-bottom: 1px solid #d6e9c6;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+        .panel-body {
+            padding: 25px;
+            background-color: #fff;
+        }
+        .table {
+            margin-bottom: 20px;
+        }
+        .table > thead > tr > th {
+            border-bottom: 2px solid #ddd;
+            font-weight: 600;
+            color: #333;
+            padding: 12px 8px;
+        }
+        .table > tbody > tr > td {
+            padding: 12px 8px;
+            vertical-align: middle;
+        }
+        .table-striped > tbody > tr:nth-of-type(odd) {
+            background-color: #f9f9f9;
+        }
+        .authentic-certificate {
+            font-weight: 600;
+            color: #333;
+            width: 35%;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background-color: #1a2a36;
+            color: #cddce9;
+            margin-top: 60px;
+            padding: 45px 0 0;
+            font-size: 13px;
+        }
+        footer h4 {
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .footer-social-icons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .footer-social-icons a {
+            color: #e2e2e2;
+            font-size: 1.8rem;
