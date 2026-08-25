@@ -485,7 +485,7 @@
         .then(response => response.json())
         .then(data => {
             certificatesDB = data;
-            checkPath();
+            checkHash(); // استدعاء دالة قراءة الشباك
         })
         .catch(error => console.error("Error loading JSON data:", error));
 
@@ -499,11 +499,9 @@
         document.getElementById("resultPanel").style.display = "block";
     }
 
-    // 2. Check the URL path 
-    function checkPath() {
-        const pathArray = window.location.pathname.split('/');
-        // Extract the last segment of the path
-        const code = pathArray.filter(segment => segment).pop();
+    // 2. قراءة الكود من بعد علامة # في الرابط
+    function checkHash() {
+        const code = window.location.hash.substring(1); // بيشيل علامة # وياخد الكود
 
         if (code && certificatesDB[code]) {
             const certData = certificatesDB[code];
@@ -524,7 +522,7 @@
         }
     }
 
-    // 3. Manual validation
+    // 3. التحقق اليدوي
     document.getElementById("validateForm").addEventListener("submit", function(e) {
         e.preventDefault();
         
